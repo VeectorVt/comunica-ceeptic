@@ -1,84 +1,112 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Megaphone, Calendar, ChevronRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Search, AlertTriangle, Info, Users, Filter } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import { avisos } from '../data/avisos';
 
-export default function Avisos() {
+const Avisos = () => {
   const [filter, setFilter] = useState('Todos');
-  const tabs = ['Todos', 'Geral', 'Turma', 'Urgente'];
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredAvisos = avisos?.filter(aviso => {
-    if (filter === 'Todos') return true;
-    if (filter === 'Urgente') return aviso.urgency === 'Urgente';
-    return aviso.type === filter;
-  }) || [];
+  const categorias = ['Todos', 'Geral', 'Turma', 'Urgente'];
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    show: {
-      opacity: 1,
-      transition: { staggerChildren: 0.1 }
+  const filteredAvisos = avisos.filter(aviso => {
+    const matchesFilter = filter === 'Todos' || aviso.categoria === filter;
+    const matchesSearch = aviso.titulo.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                          aviso.descricao.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesFilter && matchesSearch;
+  });
+
+  const getIcon = (categoria) => {
+    switch(categoria) {
+      case 'Urgente': return <AlertTriangle className="w-5 h-5 text-red-500" />;
+      case 'Turma': return <Users className="w-5 h-5 text-purple-500" />;
+      default: return <Info className="w-5 h-5 text-blue-500" />;
     }
   };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0 }
+  const getBadgeStyle = (categoria) => {
+    switch(categoria) {
+      case 'Urgente': return 'bg-red-100 text-red-700';
+      case 'Turma': return 'bg-purple-100 text-purple-700';
+      default: return 'bg-blue-100 text-blue-700';
+    }
   };
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pb-20">
-      <PageHeader icon={Megaphone} title="Avisos e Comunicados" subtitle="Fique por dentro das novidades da escola" />
-      
-      <div className="max-w-4xl mx-auto px-4 mt-6">
-        <div className="flex overflow-x-auto gap-2 pb-2 mb-4 scrollbar-hide">
-          {tabs.map(tab => (
-            <button 
-              key={tab}
-              onClick={() => setFilter(tab)}
-              className={`px-4 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-colors ${filter === tab ? 'bg-blue-600 text-white shadow-md' : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'}`}
+    <div className="pb-20 min-h-screen bg-slate-50">
+      <PageHeader title="Mural de Avisos" icon={Info} />
+
+      <div className="px-4 py-4 sticky top-[72px] bg-slate-50 z-10">
+        <div className="relative mb-4">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400" />
+          <input 
+            type="text" 
+            placeholder="Buscar avisos..."
+            className="w-full bg-white border border-slate-200 rounded-xl py-3 pl-12 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 shadow-sm"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
+
+        <div className="flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
+          {categorias.map(cat => (
+            <button
+              key={cat}
+              onClick={() => setFilter(cat)}
+              className={`px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap transition-colors ${
+                filter === cat 
+                  ? 'bg-blue-600 text-white shadow-md' 
+                  : 'bg-white text-slate-600 border border-slate-200'
+              }`}
             >
-              {tab}
+              {cat}
             </button>
           ))}
         </div>
+      </div>
 
-        <motion.div variants={containerVariants} initial="hidden" animate="show" className="space-y-4">
+      <div className="px-4 space-y-4">
+        <AnimatePresence>
           {filteredAvisos.map(aviso => (
-            <motion.div key={aviso.id} variants={itemVariants} className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 flex flex-col sm:flex-row sm:items-start gap-4">
-              <div className="flex-1">
-                <div className="flex flex-wrap items-center gap-2 mb-2">
-                  {aviso.destaque && (
-                    <span className="bg-orange-100 text-orange-600 text-xs font-bold px-2 py-0.5 rounded-full uppercase">Novo</span>
-                  )}
-                  {aviso.urgency === 'Urgente' && (
-                    <span className="bg-red-100 text-red-600 text-xs font-bold px-2 py-0.5 rounded-full uppercase">Urgente</span>
-                  )}
-                  {aviso.type === 'Turma' && (
-                    <span className="bg-blue-100 text-blue-600 text-xs font-bold px-2 py-0.5 rounded-full uppercase">Turma</span>
-                  )}
-                  {aviso.type === 'Geral' && (
-                    <span className="bg-teal-100 text-teal-600 text-xs font-bold px-2 py-0.5 rounded-full uppercase">Geral</span>
-                  )}
+            <motion.div
+              key={aviso.id}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className={`bg-white p-5 rounded-2xl shadow-sm border ${
+                aviso.categoria === 'Urgente' ? 'border-red-200' : 'border-slate-100'
+              }`}
+            >
+              <div className="flex justify-between items-start mb-3">
+                <div className="flex items-center gap-3">
+                  <div className={`p-2 rounded-xl ${
+                    aviso.categoria === 'Urgente' ? 'bg-red-50' :
+                    aviso.categoria === 'Turma' ? 'bg-purple-50' : 'bg-blue-50'
+                  }`}>
+                    {getIcon(aviso.categoria)}
+                  </div>
+                  <span className={`text-xs font-bold px-2 py-1 rounded-md ${getBadgeStyle(aviso.categoria)}`}>
+                    {aviso.categoria}
+                  </span>
                 </div>
-                <h3 className="text-lg font-semibold text-slate-800 mb-1">{aviso.title}</h3>
-                <p className="text-slate-600 text-sm mb-3">{aviso.description}</p>
-                <div className="flex items-center text-slate-400 text-xs font-medium">
-                  <Calendar className="w-4 h-4 mr-1.5" />
-                  {aviso.date}
-                </div>
+                <span className="text-xs font-medium text-slate-400">{aviso.data}</span>
               </div>
-              <button className="hidden sm:flex items-center justify-center w-10 h-10 rounded-full bg-slate-50 text-slate-400 hover:bg-blue-50 hover:text-blue-600 transition-colors self-center">
-                <ChevronRight className="w-5 h-5" />
-              </button>
+              <h3 className="text-base font-bold text-slate-800 mb-2">{aviso.titulo}</h3>
+              <p className="text-sm text-slate-600 leading-relaxed">{aviso.descricao}</p>
             </motion.div>
           ))}
-          {filteredAvisos.length === 0 && (
-            <div className="text-center py-10 text-slate-500">Nenhum aviso encontrado para este filtro.</div>
-          )}
-        </motion.div>
+        </AnimatePresence>
+
+        {filteredAvisos.length === 0 && (
+          <div className="text-center py-12">
+            <Filter className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+            <p className="text-slate-500 font-medium">Nenhum aviso encontrado.</p>
+          </div>
+        )}
       </div>
-    </motion.div>
+    </div>
   );
-}
+};
+
+export default Avisos;

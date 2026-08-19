@@ -1,53 +1,62 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { UtensilsCrossed, Coffee, Cookie, Info } from 'lucide-react';
+import { Utensils, Coffee, Sun, Sunset, ChevronLeft, ChevronRight } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import { cardapio } from '../data/cardapio';
 
-export default function Cardapio() {
-  const dias = ['Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta'];
-  // Hoje = 1 (Segunda) to 5 (Sexta), fallback to 0 se fim de semana
-  const dayIndex = new Date().getDay();
-  const initialTab = (dayIndex >= 1 && dayIndex <= 5) ? dias[dayIndex - 1] : 'Segunda';
-  
-  const [selectedDay, setSelectedDay] = useState(initialTab);
+const Cardapio = () => {
+  const days = ['Segunda', 'Terca', 'Quarta', 'Quinta', 'Sexta'];
+  const [selectedDayIdx, setSelectedDayIdx] = useState(0);
 
-  const getMealIcon = (type) => {
-    if (type.includes('Café')) return Coffee;
-    if (type.includes('Almoço')) return UtensilsCrossed;
-    return Cookie;
+  const selectedDay = days[selectedDayIdx];
+  const dayMenu = cardapio[selectedDay] || { cafe: 'Não disponível', almoco: 'Não disponível', lanche: 'Não disponível' };
+
+  const refeicoes = [
+    { tipo: 'Café da Manhã', descricao: dayMenu.cafe, icon: <Coffee className="w-6 h-6" />, color: 'text-orange-500', bg: 'bg-orange-50', border: 'border-orange-100' },
+    { tipo: 'Almoço', descricao: dayMenu.almoco, icon: <Sun className="w-6 h-6" />, color: 'text-yellow-500', bg: 'bg-yellow-50', border: 'border-yellow-100' },
+    { tipo: 'Lanche da Tarde', descricao: dayMenu.lanche, icon: <Sunset className="w-6 h-6" />, color: 'text-indigo-500', bg: 'bg-indigo-50', border: 'border-indigo-100' }
+  ];
+
+  const handlePrev = () => {
+    setSelectedDayIdx(prev => (prev > 0 ? prev - 1 : prev));
   };
 
-  const getMealColor = (type) => {
-    if (type.includes('Café')) return 'text-orange-500 bg-orange-50';
-    if (type.includes('Almoço')) return 'text-red-500 bg-red-50';
-    return 'text-teal-500 bg-teal-50';
+  const handleNext = () => {
+    setSelectedDayIdx(prev => (prev < days.length - 1 ? prev + 1 : prev));
   };
-
-  const menuDoDia = cardapio?.[selectedDay] || [];
 
   return (
-    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="pb-20">
-      <PageHeader icon={UtensilsCrossed} title="Cardápio da Merenda" subtitle="Confira as refeições servidas na escola" />
-      
-      <div className="max-w-4xl mx-auto px-4 mt-6">
-        <div className="flex overflow-x-auto pb-2 mb-6 scrollbar-hide gap-2">
-          {dias.map(dia => (
-            <button
-              key={dia}
-              onClick={() => setSelectedDay(dia)}
-              className={`flex-1 min-w-[80px] py-3 px-4 rounded-xl font-medium text-sm text-center transition-all ${
-                selectedDay === dia 
-                  ? 'bg-blue-600 text-white shadow-md transform scale-105' 
-                  : 'bg-white text-slate-500 border border-slate-200 hover:bg-slate-50'
-              }`}
-            >
-              {dia}
-            </button>
-          ))}
+    <div className="pb-20 min-h-screen bg-slate-50">
+      <PageHeader title="Cardápio" icon={Utensils} />
+
+      <div className="px-4 py-6">
+        {/* Day Selector */}
+        <div className="flex items-center justify-between bg-white rounded-2xl p-2 shadow-sm border border-slate-100 mb-6">
+          <button 
+            onClick={handlePrev}
+            disabled={selectedDayIdx === 0}
+            className={`p-2 rounded-xl transition-colors ${selectedDayIdx === 0 ? 'text-slate-300' : 'text-slate-600 hover:bg-slate-50'}`}
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </button>
+          
+          <div className="text-center">
+            <span className="text-sm font-bold text-slate-800 uppercase tracking-wider">
+              {selectedDay === 'Terca' ? 'Terça-feira' : `${selectedDay}-feira`}
+            </span>
+          </div>
+
+          <button 
+            onClick={handleNext}
+            disabled={selectedDayIdx === days.length - 1}
+            className={`p-2 rounded-xl transition-colors ${selectedDayIdx === days.length - 1 ? 'text-slate-300' : 'text-slate-600 hover:bg-slate-50'}`}
+          >
+            <ChevronRight className="w-6 h-6" />
+          </button>
         </div>
 
-        <div className="relative min-h-[300px]">
+        {/* Meals */}
+        <div className="space-y-4">
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedDay}
@@ -57,37 +66,30 @@ export default function Cardapio() {
               transition={{ duration: 0.2 }}
               className="space-y-4"
             >
-              {menuDoDia.length > 0 ? (
-                menuDoDia.map((refeicao, index) => {
-                  const Icon = getMealIcon(refeicao.tipo);
-                  const colorClass = getMealColor(refeicao.tipo);
-                  return (
-                    <div key={index} className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 flex items-start gap-4 hover:shadow-md transition-shadow">
-                      <div className={`w-12 h-12 rounded-full flex items-center justify-center shrink-0 ${colorClass}`}>
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      <div>
-                        <h3 className="text-lg font-bold text-slate-800 mb-1">{refeicao.tipo}</h3>
-                        <p className="text-slate-600">{refeicao.descricao}</p>
-                      </div>
+              {refeicoes.map((meal, idx) => (
+                <div key={idx} className={`bg-white p-5 rounded-2xl shadow-sm border ${meal.border}`}>
+                  <div className="flex items-center gap-4 mb-3">
+                    <div className={`p-3 rounded-xl ${meal.bg} ${meal.color}`}>
+                      {meal.icon}
                     </div>
-                  );
-                })
-              ) : (
-                <div className="text-center py-10 bg-white rounded-2xl border border-dashed border-slate-200">
-                  <UtensilsCrossed className="w-12 h-12 text-slate-300 mx-auto mb-3" />
-                  <p className="text-slate-500">Cardápio não disponível para este dia.</p>
+                    <div>
+                      <h3 className="font-bold text-slate-800">{meal.tipo}</h3>
+                      <p className="text-xs text-slate-500 font-medium">Cardápio do dia</p>
+                    </div>
+                  </div>
+                  <div className="pl-16">
+                    <p className="text-sm text-slate-700 leading-relaxed">
+                      {meal.descricao}
+                    </p>
+                  </div>
                 </div>
-              )}
+              ))}
             </motion.div>
           </AnimatePresence>
         </div>
-        
-        <div className="mt-8 bg-blue-50 border border-blue-100 rounded-xl p-4 flex items-start gap-3">
-          <Info className="w-5 h-5 text-blue-600 shrink-0 mt-0.5" />
-          <p className="text-sm text-blue-800">O cardápio pode sofrer alterações sem aviso prévio de acordo com a disponibilidade dos ingredientes.</p>
-        </div>
       </div>
-    </motion.div>
+    </div>
   );
-}
+};
+
+export default Cardapio;
