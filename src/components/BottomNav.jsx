@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { Home, Bell, Calendar, Map, User } from 'lucide-react';
+import { Home, Bell, Calendar, Map, Phone } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export default function BottomNav() {
@@ -9,7 +9,7 @@ export default function BottomNav() {
     { path: '/avisos', icon: Bell, label: 'Avisos' },
     { path: '/grade', icon: Calendar, label: 'Grade' },
     { path: '/mapa', icon: Map, label: 'Mapa' },
-    { path: '/perfil', icon: User, label: 'Perfil' },
+    { path: '/contatos', icon: Phone, label: 'Contatos' },
   ];
 
   return (

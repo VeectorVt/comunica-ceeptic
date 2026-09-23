@@ -12,7 +12,6 @@ import Professores from './pages/Professores'
 import Eventos from './pages/Eventos'
 import AchadosPerdidos from './pages/AchadosPerdidos'
 import Contatos from './pages/Contatos'
-import Perfil from './pages/Perfil'
 
 function App() {
   const location = useLocation()
@@ -31,7 +30,6 @@ function App() {
           <Route path="eventos" element={<Eventos />} />
           <Route path="achados-perdidos" element={<AchadosPerdidos />} />
           <Route path="contatos" element={<Contatos />} />
-          <Route path="perfil" element={<Perfil />} />
         </Route>
       </Routes>
     </AnimatePresence>

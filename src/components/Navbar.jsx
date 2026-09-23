@@ -1,5 +1,5 @@
 import React from 'react';
-import { Menu, Bell } from 'lucide-react';
+import { Menu } from 'lucide-react';
 
 export default function Navbar({ onToggleSidebar }) {
   return (
@@ -12,15 +12,7 @@ export default function Navbar({ onToggleSidebar }) {
           Comunica CEEPTIC
         </h1>
       </div>
-      <div className="flex items-center gap-4">
-        <button className="relative p-2 rounded-full hover:bg-gray-100 text-slate-600 transition-colors">
-          <Bell size={20} />
-          <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
-        </button>
-        <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 font-semibold text-sm border border-blue-200">
-          AL
-        </div>
-      </div>
+
     </header>
   );
 }

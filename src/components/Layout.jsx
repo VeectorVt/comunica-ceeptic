@@ -31,7 +31,7 @@ export default function Layout() {
           </AnimatePresence>
 
           <footer className="w-full py-4 text-center text-sm text-slate-400 mt-auto">
-            Feito por <span className="font-semibold text-slate-500">ocesardev</span>
+            {/* Feito por <span className="font-semibold text-slate-500">ocesardev</span> */}
           </footer>
         </main>
       </div>

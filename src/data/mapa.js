@@ -66,7 +66,7 @@ export const locais = [
   {
     id: 9,
     nome: 'Auditório Principal',
-    descricao: 'Auditório climatizado com capacidade para 250 pessoas, equipado com sistema multimídia.',
+    descricao: 'Auditório climatizado equipado com sistema multimídia para eventos e palestras.',
     tipo: 'administrativo',
     posicao: { row: 2, col: 4 },
     cor: 'bg-blue-500'
@@ -81,46 +81,38 @@ export const locais = [
   },
   {
     id: 11,
-    nome: 'Sala 01 - Informática',
-    descricao: 'Sala de aula didática climatizada para turmas do 1º ano de Informática.',
+    nome: 'Sala 01 – MANUT (1º, 2º e 3º Ano)',
+    descricao: 'Sala de aula do curso de Manutenção e Suporte em Informática (1º, 2º e 3º Ano Vespertino).',
     tipo: 'sala',
     posicao: { row: 3, col: 1 },
     cor: 'bg-indigo-500'
   },
   {
     id: 12,
-    nome: 'Sala 02 - Informática',
-    descricao: 'Sala de aula didática climatizada para turmas do 2º ano de Informática.',
+    nome: 'Sala 02 – INFO (1º, 2º e 3º Ano)',
+    descricao: 'Sala de aula do curso de Informática (1º, 2º e 3º Ano Matutino).',
     tipo: 'sala',
     posicao: { row: 3, col: 2 },
     cor: 'bg-indigo-500'
   },
   {
     id: 13,
-    nome: 'Sala 03 - Manutenção',
-    descricao: 'Sala de aula didática para turmas de Manutenção e Suporte em Informática.',
+    nome: 'Sala 03 – ADM (1º, 2º e 3º Ano)',
+    descricao: 'Sala de aula do curso de Administração (1º, 2º e 3º Ano Matutino).',
     tipo: 'sala',
     posicao: { row: 3, col: 3 },
     cor: 'bg-indigo-500'
   },
   {
     id: 14,
-    nome: 'Sala 04 - Eletrotécnica',
-    descricao: 'Sala de aula didática para aulas teóricas do curso de Eletrotécnica.',
+    nome: 'Sala 04 – LOG (1º, 2º e 3º Ano)',
+    descricao: 'Sala de aula do curso de Logística (1º, 2º e 3º Ano Vespertino).',
     tipo: 'sala',
     posicao: { row: 3, col: 4 },
     cor: 'bg-indigo-500'
   },
   {
     id: 15,
-    nome: 'Sala 05 - Redes de Computadores',
-    descricao: 'Sala de aula didática para turmas do curso técnico em Redes de Computadores.',
-    tipo: 'sala',
-    posicao: { row: 3, col: 5 },
-    cor: 'bg-indigo-500'
-  },
-  {
-    id: 16,
     nome: 'Sala Maker e Robótica',
     descricao: 'Espaço com impressoras 3D, kits Arduino, Raspberry Pi e ferramentas de prototipagem rápida.',
     tipo: 'laboratorio',
@@ -128,7 +120,7 @@ export const locais = [
     cor: 'bg-emerald-600'
   },
   {
-    id: 17,
+    id: 16,
     nome: 'Sanitários Bloco Central',
     descricao: 'Instalações sanitárias masculinas, femininas e adaptadas com acessibilidade.',
     tipo: 'servico',
@@ -136,7 +128,7 @@ export const locais = [
     cor: 'bg-slate-500'
   },
   {
-    id: 18,
+    id: 17,
     nome: 'Laboratório de Informática 01',
     descricao: 'Laboratório com 35 máquinas de alto desempenho para aulas de lógica, algoritmos e programação.',
     tipo: 'laboratorio',
@@ -144,7 +136,7 @@ export const locais = [
     cor: 'bg-emerald-500'
   },
   {
-    id: 19,
+    id: 18,
     nome: 'Laboratório de Informática 02',
     descricao: 'Laboratório com 35 máquinas configuradas com ambientes de desenvolvimento web e bancos de dados.',
     tipo: 'laboratorio',
@@ -152,31 +144,23 @@ export const locais = [
     cor: 'bg-emerald-500'
   },
   {
-    id: 20,
-    nome: 'Laboratório de Redes de Computadores',
-    descricao: 'Laboratório equipado com racks, switches gerenciáveis, roteadores Cisco e patch panels.',
+    id: 19,
+    nome: 'Laboratório de Manutenção e Hardware',
+    descricao: 'Bancadas com mantas antiestáticas, multímetros, estações de solda e peças para montagem.',
     tipo: 'laboratorio',
     posicao: { row: 5, col: 1 },
     cor: 'bg-emerald-500'
   },
   {
-    id: 21,
-    nome: 'Laboratório de Manutenção e Hardware',
-    descricao: 'Bancadas com mantas antiestáticas, multímetros, estações de solda e peças para montagem.',
+    id: 20,
+    nome: 'Laboratório de Administração e Logística',
+    descricao: 'Espaço com computadores, simuladores de gestão e materiais para práticas de logística empresarial.',
     tipo: 'laboratorio',
     posicao: { row: 5, col: 2 },
     cor: 'bg-emerald-500'
   },
   {
-    id: 22,
-    nome: 'Laboratório de Eletrotécnica',
-    descricao: 'Bancadas didáticas para comandos elétricos, instalações prediais e circuitos industriais.',
-    tipo: 'laboratorio',
-    posicao: { row: 5, col: 3 },
-    cor: 'bg-emerald-500'
-  },
-  {
-    id: 23,
+    id: 21,
     nome: 'Quadra Poliesportiva Coberta',
     descricao: 'Quadra oficial com demarcação para futsal, basquete, voleibol e arquibancadas laterais.',
     tipo: 'esporte',
@@ -184,7 +168,7 @@ export const locais = [
     cor: 'bg-rose-500'
   },
   {
-    id: 24,
+    id: 22,
     nome: 'Campo de Futebol Society e Pista',
     descricao: 'Campo de futebol society em grama sintética e pista para caminhada e atletismo.',
     tipo: 'esporte',
@@ -192,7 +176,7 @@ export const locais = [
     cor: 'bg-rose-600'
   },
   {
-    id: 25,
+    id: 23,
     nome: 'Vestiários do Complexo Esportivo',
     descricao: 'Vestiários com chuveiros e armários individuais para práticas de educação física.',
     tipo: 'servico',

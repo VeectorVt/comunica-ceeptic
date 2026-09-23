@@ -12,7 +12,6 @@ import {
   PartyPopper,
   Search,
   Phone,
-  UserCircle,
   X
 } from 'lucide-react';
 
@@ -27,7 +26,6 @@ const menuItems = [
   { path: '/eventos', icon: PartyPopper, label: 'Eventos' },
   { path: '/achados-perdidos', icon: Search, label: 'Achados e Perdidos' },
   { path: '/contatos', icon: Phone, label: 'Contatos' },
-  { path: '/perfil', icon: UserCircle, label: 'Perfil' },
 ];
 
 export default function Sidebar({ isOpen, onClose }) {
