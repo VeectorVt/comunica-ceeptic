@@ -8,6 +8,11 @@ export default function Navbar({ onToggleSidebar }) {
         <button onClick={onToggleSidebar} className="p-2 -ml-2 rounded-lg hover:bg-gray-100 md:hidden text-slate-700">
           <Menu size={24} />
         </button>
+        <img
+          src="/logo_ceeptic.png"
+          alt="Logo CEEPTIC"
+          className="w-9 h-9 rounded-full object-cover shadow-sm border border-slate-200"
+        />
         <h1 className="text-xl font-bold bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent">
           Comunica CEEPTIC
         </h1>

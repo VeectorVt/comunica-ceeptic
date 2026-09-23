@@ -10,7 +10,17 @@ export default function Layout() {
   const location = useLocation();
 
   return (
-    <div className="min-h-screen bg-slate-50 flex flex-col text-slate-800">
+    <div
+      className="min-h-screen flex flex-col text-slate-800 relative"
+      style={{
+        backgroundImage: 'url(/escola_bg.png)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+      }}
+    >
+      {/* Overlay para legibilidade */}
+      <div className="fixed inset-0 bg-white/70 backdrop-blur-[2px] z-0 pointer-events-none" />
       <Navbar onToggleSidebar={() => setSidebarOpen(true)} />
       
       <div className="flex flex-1 pt-16">

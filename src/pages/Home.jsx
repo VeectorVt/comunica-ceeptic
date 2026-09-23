@@ -19,21 +19,24 @@ const Home = () => {
   const recentAvisos = avisos.slice(0, 3);
 
   return (
-    <div className="pb-20 min-h-screen bg-slate-50">
+    <div className="pb-20 min-h-screen">
       {/* Hero Banner */}
-      <div className="bg-blue-600 px-6 pt-12 pb-8 rounded-b-[2.5rem] shadow-lg">
-        <div className="flex justify-between items-center mb-6 text-white">
+      <div className="relative px-6 pt-12 pb-8 rounded-b-[2.5rem] shadow-lg overflow-hidden bg-gradient-to-b from-blue-900/80 via-blue-800/70 to-blue-700/60">
+
+        <div className="relative z-10 flex justify-between items-center mb-6 text-white">
           <div>
-            <h1 className="text-2xl font-bold">Olá, Aluno! 👋</h1>
-            <p className="text-blue-100 mt-1">CEEPTIC Portal</p>
+            <h1 className="text-2xl font-bold drop-shadow">Bem-vindo! 👋</h1>
+            <p className="text-blue-100 mt-1 drop-shadow">CEEPTIC – Lauro de Freitas</p>
           </div>
-          <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
-            <span className="text-xl font-bold">AL</span>
-          </div>
+          <img
+            src="/logo_ceeptic.png"
+            alt="Logo CEEPTIC"
+            className="w-14 h-14 rounded-full object-cover shadow-lg border-2 border-white/40"
+          />
         </div>
 
         {/* Search Bar */}
-        <div className="relative">
+        <div className="relative z-10">
           <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
             <Search className="h-5 w-5 text-slate-400" />
           </div>
@@ -46,6 +49,7 @@ const Home = () => {
           />
         </div>
       </div>
+
 
       <div className="px-6 mt-8">
         {/* Features Grid */}
