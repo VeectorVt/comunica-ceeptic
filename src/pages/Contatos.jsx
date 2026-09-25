@@ -16,7 +16,7 @@ export default function Contatos() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3, delay: index * 0.1 }}
-            className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden"
+            className="bg-white rounded-lg shadow-sm border border-slate-100 overflow-hidden"
           >
             <div className="p-5 border-b border-slate-50">
               <div className="flex items-center gap-3 mb-4">

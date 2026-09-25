@@ -100,7 +100,7 @@ const Home = () => {
               key={aviso.id}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              className={`p-4 rounded-2xl shadow-sm border ${
+              className={`p-4 rounded-lg shadow-sm border ${
                 aviso.categoria === 'Urgente' ? 'bg-red-50 border-red-100' : 'bg-white border-slate-100'
               }`}
             >

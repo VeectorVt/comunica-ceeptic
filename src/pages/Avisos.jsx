@@ -34,7 +34,7 @@ const Avisos = () => {
   };
 
   return (
-    <div className="pb-20 min-h-screen bg-slate-50">
+    <div className="pb-20 min-h-screen bg-slate-50 rounded-lg">
       <PageHeader title="Mural de Avisos" icon={Info} />
 
       <div className="px-4 py-4 sticky top-[72px] bg-slate-50 z-10">
@@ -74,7 +74,7 @@ const Avisos = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className={`bg-white p-5 rounded-2xl shadow-sm border ${
+              className={`bg-white p-5 rounded-lg shadow-sm border ${
                 aviso.categoria === 'Urgente' ? 'border-red-200' : 'border-slate-100'
               }`}
             >

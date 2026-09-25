@@ -7,12 +7,12 @@ export const grades = {
     turno: 'Vespertino',
     sala: 'Sala 01 – MANUT',
     horarios: [
-      { horario: '13:00', segunda: 'Português', terca: 'Matemática', quarta: 'História', quinta: 'Eletricidade Básica', sexta: 'Geografia' },
-      { horario: '13:45', segunda: 'Português', terca: 'Matemática', quarta: 'História', quinta: 'Eletricidade Básica', sexta: 'Geografia' },
-      { horario: '14:30', segunda: 'Arq. de Computadores', terca: 'Física', quarta: 'Sist. Operacionais I', quinta: 'Biologia', sexta: 'Inglês Técnico' },
-      { horario: '15:35', segunda: 'Arq. de Computadores', terca: 'Física', quarta: 'Sist. Operacionais I', quinta: 'Biologia', sexta: 'Inglês Técnico' },
-      { horario: '16:20', segunda: 'Fund. de TI', terca: 'Ed. Física', quarta: 'Química', quinta: 'Filosofia', sexta: 'Sociologia' },
-      { horario: '17:05', segunda: 'Prát. de Laboratório', terca: 'Ed. Física', quarta: 'Química', quinta: 'Artes', sexta: 'Matemática' }
+      { horario: '13:00', segunda: 'Português e Redação', terca: 'Matemática', quarta: 'História', quinta: 'Eletricidade Básica', sexta: 'Geografia' },
+      { horario: '13:45', segunda: 'Português e Redação', terca: 'Matemática', quarta: 'História', quinta: 'Eletricidade Básica', sexta: 'Geografia' },
+      { horario: '14:30', segunda: 'Manutenção de Hardware', terca: 'Física Aplicada', quarta: 'Sistemas Operacionais', quinta: 'Biologia', sexta: 'Inglês Técnico' },
+      { horario: '15:35', segunda: 'Manutenção de Hardware', terca: 'Física Aplicada', quarta: 'Sistemas Operacionais', quinta: 'Biologia', sexta: 'Inglês Técnico' },
+      { horario: '16:20', segunda: 'Fundamentos de TI', terca: 'Educação Física', quarta: 'Química', quinta: 'Filosofia', sexta: 'Sociologia' },
+      { horario: '17:05', segunda: 'Laboratório de Informática', terca: 'Educação Física', quarta: 'Química', quinta: 'Artes', sexta: 'Matemática' }
     ]
   },
   MANUT2VA: {
@@ -22,12 +22,12 @@ export const grades = {
     turno: 'Vespertino',
     sala: 'Sala 01 – MANUT',
     horarios: [
-      { horario: '13:00', segunda: 'Química (Luciana Farias)', terca: 'Aprofund. de Saberes (Cláudia Fernandes)', quarta: 'Gestão em Manutenção (Anderson Reis)', quinta: 'Aprofund. de Saberes (Cláudia Fernandes)', sexta: 'Geografia (João Gabriel)' },
-      { horario: '13:45', segunda: 'Química (Luciana Farias)', terca: 'Arte (Manuela Borges)', quarta: 'Gestão em Manutenção (Anderson Reis)', quinta: 'Eletro. Elétrica Básica (Robson Cunha)', sexta: 'Língua Port. e Red. (André Leone)' },
-      { horario: '14:30', segunda: 'História (Aécio Lessa)', terca: 'Seg. e Redes de Comp. (Diogo Oliveira)', quarta: 'Biologia (Fabíola Botelho)', quinta: 'Filosofia (Daila Ataíde)', sexta: 'Língua Port. e Red. (André Leone)' },
-      { horario: '15:35', segunda: 'História (Aécio Lessa)', terca: 'Seg. e Redes de Comp. (Diogo Oliveira)', quarta: 'Biologia (Fabíola Botelho)', quinta: 'Língua Inglesa (Diana Nunes)', sexta: 'Sociologia (Cleziane de Jesus)' },
-      { horario: '16:20', segunda: 'Física (Robson Veras)', terca: 'Inst. e Manut. de Comp. (Leandro Prates)', quarta: 'Matemática (Rinaldo)', quinta: 'Ed. Física (André Galvão)', sexta: 'Seg. e Sist. Operacionais (Alan Bizerra)' },
-      { horario: '17:05', segunda: 'Física (Robson Veras)', terca: 'Inst. e Manut. de Comp. (Leandro Prates)', quarta: 'Matemática (Rinaldo)', quinta: 'Eletro. Elétrica Básica (Robson Cunha)', sexta: 'Seg. e Sist. Operacionais (Alan Bizerra)' }
+      { horario: '13:00', segunda: 'Química', terca: 'Redes e Infraestrutura', quarta: 'Gestão de Manutenção', quinta: 'Eletricidade Básica', sexta: 'Geografia' },
+      { horario: '13:45', segunda: 'Química', terca: 'Redes e Infraestrutura', quarta: 'Gestão de Manutenção', quinta: 'Eletricidade Básica', sexta: 'Português e Redação' },
+      { horario: '14:30', segunda: 'História', terca: 'Sistemas Operacionais', quarta: 'Biologia', quinta: 'Filosofia', sexta: 'Português e Redação' },
+      { horario: '15:35', segunda: 'História', terca: 'Sistemas Operacionais', quarta: 'Biologia', quinta: 'Inglês Técnico', sexta: 'Sociologia' },
+      { horario: '16:20', segunda: 'Física Aplicada', terca: 'Instalações e Manutenção', quarta: 'Matemática', quinta: 'Educação Física', sexta: 'Segurança e Redes' },
+      { horario: '17:05', segunda: 'Física Aplicada', terca: 'Instalações e Manutenção', quarta: 'Matemática', quinta: 'Eletricidade Básica', sexta: 'Segurança e Redes' }
     ]
   },
   MANUT3VA: {
@@ -37,12 +37,12 @@ export const grades = {
     turno: 'Vespertino',
     sala: 'Sala 01 – MANUT',
     horarios: [
-      { horario: '13:00', segunda: 'Português', terca: 'Matemática', quarta: 'Física', quinta: 'Gestão de TI', sexta: 'História' },
-      { horario: '13:45', segunda: 'Português', terca: 'Matemática', quarta: 'Física', quinta: 'Gestão de TI', sexta: 'História' },
-      { horario: '14:30', segunda: 'Redes Avançadas', terca: 'Seg. da Informação', quarta: 'Biologia', quinta: 'Filosofia', sexta: 'Inglês Técnico' },
-      { horario: '15:35', segunda: 'Redes Avançadas', terca: 'Seg. da Informação', quarta: 'Biologia', quinta: 'Sociologia', sexta: 'Inglês Técnico' },
-      { horario: '16:20', segunda: 'TCC / Projeto Integrador', terca: 'Ed. Física', quarta: 'Química', quinta: 'Artes', sexta: 'Geografia' },
-      { horario: '17:05', segunda: 'TCC / Projeto Integrador', terca: 'Ed. Física', quarta: 'Química', quinta: 'Empreendedorismo', sexta: 'Matemática' }
+      { horario: '13:00', segunda: 'Português e Redação', terca: 'Matemática', quarta: 'Física Aplicada', quinta: 'Gestão de TI', sexta: 'História' },
+      { horario: '13:45', segunda: 'Português e Redação', terca: 'Matemática', quarta: 'Física Aplicada', quinta: 'Gestão de TI', sexta: 'História' },
+      { horario: '14:30', segunda: 'Redes Avançadas', terca: 'Sistemas da Informação', quarta: 'Biologia', quinta: 'Filosofia', sexta: 'Inglês Técnico' },
+      { horario: '15:35', segunda: 'Redes Avançadas', terca: 'Sistemas da Informação', quarta: 'Biologia', quinta: 'Sociologia', sexta: 'Inglês Técnico' },
+      { horario: '16:20', segunda: 'Projeto Integrador', terca: 'Educação Física', quarta: 'Química', quinta: 'Artes', sexta: 'Geografia' },
+      { horario: '17:05', segunda: 'Projeto Integrador', terca: 'Educação Física', quarta: 'Química', quinta: 'Empreendedorismo', sexta: 'Matemática' }
     ]
   },
 
@@ -148,12 +148,12 @@ export const grades = {
     turno: 'Vespertino',
     sala: 'Sala 04 – LOG',
     horarios: [
-      { horario: '13:00', segunda: 'Fundamentos de Log.', terca: 'Português', quarta: 'Matemática', quinta: 'Gestão de Estoque', sexta: 'História' },
-      { horario: '13:45', segunda: 'Fundamentos de Log.', terca: 'Português', quarta: 'Matemática', quinta: 'Gestão de Estoque', sexta: 'História' },
-      { horario: '14:30', segunda: 'Transporte e Dist.', terca: 'Física', quarta: 'Inglês Comercial', quinta: 'Biologia', sexta: 'Geografia' },
-      { horario: '15:35', segunda: 'Transporte e Dist.', terca: 'Física', quarta: 'Inglês Comercial', quinta: 'Biologia', sexta: 'Química' },
-      { horario: '16:20', segunda: 'Inform. Aplicada', terca: 'Ed. Física', quarta: 'Filosofia', quinta: 'Português', sexta: 'Sociologia' },
-      { horario: '17:05', segunda: 'Inform. Aplicada', terca: 'Ed. Física', quarta: 'Artes', quinta: 'Matemática', sexta: 'Sociologia' }
+      { horario: '13:00', segunda: 'Fundamentos de Logística', terca: 'Português e Redação', quarta: 'Matemática', quinta: 'Gestão de Estoque', sexta: 'História' },
+      { horario: '13:45', segunda: 'Fundamentos de Logística', terca: 'Português e Redação', quarta: 'Matemática', quinta: 'Gestão de Estoque', sexta: 'História' },
+      { horario: '14:30', segunda: 'Transporte e Distribuição', terca: 'Física Aplicada', quarta: 'Inglês Comercial', quinta: 'Biologia', sexta: 'Geografia' },
+      { horario: '15:35', segunda: 'Transporte e Distribuição', terca: 'Física Aplicada', quarta: 'Inglês Comercial', quinta: 'Biologia', sexta: 'Química' },
+      { horario: '16:20', segunda: 'Informática Aplicada', terca: 'Educação Física', quarta: 'Filosofia', quinta: 'Português', sexta: 'Sociologia' },
+      { horario: '17:05', segunda: 'Informática Aplicada', terca: 'Educação Física', quarta: 'Artes', quinta: 'Matemática', sexta: 'Sociologia' }
     ]
   },
   LOG2VA: {
@@ -163,12 +163,12 @@ export const grades = {
     turno: 'Vespertino',
     sala: 'Sala 04 – LOG',
     horarios: [
-      { horario: '13:00', segunda: 'Cadeia de Suprimentos', terca: 'Matemática Fin.', quarta: 'Português', quinta: 'Gestão de Armazém', sexta: 'História' },
-      { horario: '13:45', segunda: 'Cadeia de Suprimentos', terca: 'Matemática Fin.', quarta: 'Português', quinta: 'Gestão de Armazém', sexta: 'História' },
-      { horario: '14:30', segunda: 'Comércio Exterior', terca: 'Economia', quarta: 'Física', quinta: 'Química', sexta: 'Geografia' },
-      { horario: '15:35', segunda: 'Comércio Exterior', terca: 'Economia', quarta: 'Física', quinta: 'Química', sexta: 'Sociologia' },
-      { horario: '16:20', segunda: 'Empreendedorismo', terca: 'Biologia', quarta: 'Ed. Física', quinta: 'Matemática', sexta: 'Inglês Comercial' },
-      { horario: '17:05', segunda: 'Empreendedorismo', terca: 'Biologia', quarta: 'Ed. Física', quinta: 'Filosofia', sexta: 'Artes' }
+      { horario: '13:00', segunda: 'Cadeia de Suprimentos', terca: 'Matemática Financeira', quarta: 'Português', quinta: 'Gestão de Armazém', sexta: 'História' },
+      { horario: '13:45', segunda: 'Cadeia de Suprimentos', terca: 'Matemática Financeira', quarta: 'Português', quinta: 'Gestão de Armazém', sexta: 'História' },
+      { horario: '14:30', segunda: 'Comércio Exterior', terca: 'Economia', quarta: 'Física Aplicada', quinta: 'Química', sexta: 'Geografia' },
+      { horario: '15:35', segunda: 'Comércio Exterior', terca: 'Economia', quarta: 'Física Aplicada', quinta: 'Química', sexta: 'Sociologia' },
+      { horario: '16:20', segunda: 'Empreendedorismo', terca: 'Biologia', quarta: 'Educação Física', quinta: 'Matemática', sexta: 'Inglês Comercial' },
+      { horario: '17:05', segunda: 'Empreendedorismo', terca: 'Biologia', quarta: 'Educação Física', quinta: 'Filosofia', sexta: 'Artes' }
     ]
   },
   LOG3VA: {
@@ -178,12 +178,12 @@ export const grades = {
     turno: 'Vespertino',
     sala: 'Sala 04 – LOG',
     horarios: [
-      { horario: '13:00', segunda: 'Proj. Log. Integrado', terca: 'Gestão de Qualidade', quarta: 'Português', quinta: 'Sustentabilidade', sexta: 'História' },
-      { horario: '13:45', segunda: 'Proj. Log. Integrado', terca: 'Gestão de Qualidade', quarta: 'Português', quinta: 'Sustentabilidade', sexta: 'História' },
-      { horario: '14:30', segunda: 'Roteirização e WMS', terca: 'Direito Empresarial', quarta: 'Física', quinta: 'Química', sexta: 'Geografia' },
-      { horario: '15:35', segunda: 'Roteirização e WMS', terca: 'Direito Empresarial', quarta: 'Física', quinta: 'Química', sexta: 'Sociologia' },
-      { horario: '16:20', segunda: 'TCC / Proj. Integrador', terca: 'Biologia', quarta: 'Ed. Física', quinta: 'Matemática', sexta: 'Inglês Comercial' },
-      { horario: '17:05', segunda: 'TCC / Proj. Integrador', terca: 'Biologia', quarta: 'Ed. Física', quinta: 'Filosofia', sexta: 'Empreendedorismo' }
+      { horario: '13:00', segunda: 'Projeto de Logística Integrada', terca: 'Gestão de Qualidade', quarta: 'Português', quinta: 'Sustentabilidade', sexta: 'História' },
+      { horario: '13:45', segunda: 'Projeto de Logística Integrada', terca: 'Gestão de Qualidade', quarta: 'Português', quinta: 'Sustentabilidade', sexta: 'História' },
+      { horario: '14:30', segunda: 'Roteirização e WMS', terca: 'Direito Empresarial', quarta: 'Física Aplicada', quinta: 'Química', sexta: 'Geografia' },
+      { horario: '15:35', segunda: 'Roteirização e WMS', terca: 'Direito Empresarial', quarta: 'Física Aplicada', quinta: 'Química', sexta: 'Sociologia' },
+      { horario: '16:20', segunda: 'Projeto Integrador', terca: 'Biologia', quarta: 'Educação Física', quinta: 'Matemática', sexta: 'Inglês Comercial' },
+      { horario: '17:05', segunda: 'Projeto Integrador', terca: 'Biologia', quarta: 'Educação Física', quinta: 'Filosofia', sexta: 'Empreendedorismo' }
     ]
   }
 };

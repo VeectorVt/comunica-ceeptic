@@ -16,7 +16,7 @@ export default function PageHeader({ icon: Icon, title, subtitle, color = 'blue'
     <motion.div 
       initial={{ opacity: 0, y: -10 }}
       animate={{ opacity: 1, y: 0 }}
-      className="mb-6 flex flex-col sm:flex-row sm:items-center gap-4"
+      className="mb-6 flex flex-col sm:flex-row sm:items-center  p-5 gap-4"
     >
       {Icon && (
         <div className={`p-3 rounded-2xl flex-shrink-0 w-max ${iconColorClass}`}>

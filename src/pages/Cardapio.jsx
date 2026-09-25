@@ -31,7 +31,7 @@ const Cardapio = () => {
 
       <div className="px-4 py-6">
         {/* Day Selector */}
-        <div className="flex items-center justify-between bg-white rounded-2xl p-2 shadow-sm border border-slate-100 mb-6">
+        <div className="flex items-center justify-between bg-white rounded-lg p-2 shadow-sm  mb-6">
           <button 
             onClick={handlePrev}
             disabled={selectedDayIdx === 0}
@@ -67,7 +67,7 @@ const Cardapio = () => {
               className="space-y-4"
             >
               {refeicoes.map((meal, idx) => (
-                <div key={idx} className={`bg-white p-5 rounded-2xl shadow-sm border ${meal.border}`}>
+                <div key={idx} className={`bg-white p-5 rounded-lg shadow-sm border ${meal.border}`}>
                   <div className="flex items-center gap-4 mb-3">
                     <div className={`p-3 rounded-xl ${meal.bg} ${meal.color}`}>
                       {meal.icon}

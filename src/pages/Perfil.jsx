@@ -36,7 +36,7 @@ export default function Perfil() {
         </div>
 
         {/* Academic Info */}
-        <div className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100">
+        <div className="bg-white rounded-lg p-5 shadow-sm border border-slate-100">
           <h3 className="font-bold text-slate-900 mb-4 flex items-center gap-2">
             <Shield className="w-5 h-5 text-blue-500" />
             Informações Acadêmicas
@@ -86,7 +86,7 @@ export default function Perfil() {
         </div>
 
         {/* Preferences */}
-        <div className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100 space-y-5">
+        <div className="bg-white rounded-lg p-5 shadow-sm border border-slate-100 space-y-5">
           <h3 className="font-bold text-slate-900 mb-2">Preferências</h3>
           
           <div className="flex items-center justify-between">

@@ -55,7 +55,7 @@ export default function AchadosPerdidos() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
                 transition={{ duration: 0.2, delay: index * 0.05 }}
-                className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100 flex gap-4 min-w-0 overflow-hidden"
+                className="bg-white rounded-lg p-4 shadow-sm border border-slate-100 flex gap-4 min-w-0 overflow-hidden"
               >
                 <div className={`w-12 h-12 shrink-0 rounded-xl flex items-center justify-center text-white shadow-sm ${
                   item.tipo === 'achado' ? 'bg-gradient-to-br from-teal-400 to-teal-500' : 'bg-gradient-to-br from-orange-400 to-orange-500'
