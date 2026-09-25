@@ -22,7 +22,7 @@ const GradeAulas = () => {
 
       <div className="px-4 py-6">
         {/* Turma Selector */}
-        <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 mb-6">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-slate-100 mb-6">
           <label className="block text-sm font-bold text-slate-700 mb-2">Selecione sua Turma</label>
           <div className="relative mb-3">
             <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
@@ -48,7 +48,7 @@ const GradeAulas = () => {
 
         {/* Grade Table */}
         {gradeAtual ? (
-          <div className="bg-white rounded-2xl shadow-sm border border-slate-100 overflow-hidden">
+          <div className="bg-white rounded-lg shadow-sm border border-slate-100 overflow-hidden">
             <div className="bg-blue-600 p-4 text-white">
               <h2 className="font-bold text-lg">{gradeAtual.nome}</h2>
               <p className="text-blue-100 text-sm">Horário de Aulas</p>

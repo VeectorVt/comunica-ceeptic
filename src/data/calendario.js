@@ -1,86 +1,170 @@
 export const eventos = [
   {
     id: 1,
-    data: '2026-08-21',
-    titulo: 'Avaliação Diagnóstica de Habilidades Técnicas',
-    tipo: 'prova',
-    descricao: 'Aplicação das provas diagnósticas interdisciplinares para todas as turmas de 1º e 2º anos nos turnos matutino e vespertino.'
+    data: '2026-08-07',
+    titulo: 'Início do Ano Letivo',
+    tipo: 'evento',
+    descricao: 'Retomada das atividades letivas e organização da rotina escolar do 3º trimestre.'
   },
   {
     id: 2,
-    data: '2026-08-29',
-    titulo: 'Reunião de Pais e Mestres - 3º Trimestre',
+    data: '2026-08-21',
+    titulo: 'Conselho de Classe – 1º, 2º e 3º anos',
     tipo: 'reuniao',
-    descricao: 'Encontro com os responsáveis para entrega de boletins parciais e alinhamento do rendimento escolar no auditório do CEEPTIC.'
+    descricao: 'Conselho de classe da II unidade para avaliação do rendimento e acompanhamento pedagógico.'
   },
   {
     id: 3,
+    data: '2026-09-01',
+    titulo: 'Regime de Progressão Parcial (RPP)',
+    tipo: 'evento',
+    descricao: 'Acompanhamento do Regime de Progressão Parcial para o 3º ciclo no turno vespertino.'
+  },
+  {
+    id: 4,
     data: '2026-09-07',
     titulo: 'Independência do Brasil',
     tipo: 'feriado',
     descricao: 'Feriado nacional. Não haverá expediente administrativo nem aulas regulares na unidade.'
   },
   {
-    id: 4,
-    data: '2026-09-18',
-    titulo: 'Feira de Ciências e Tecnologia CEEPTIC',
-    tipo: 'evento',
-    descricao: 'Exposição dos projetos práticos, protótipos de robótica, redes e automação desenvolvidos pelos estudantes da instituição.'
-  },
-  {
     id: 5,
-    data: '2026-09-28',
-    titulo: 'Simulado Preparatório ENEM & Técnico',
+    data: '2026-09-21',
+    titulo: 'Avaliação Processual I',
     tipo: 'prova',
-    descricao: 'Simulado geral unificado com foco nas áreas de Ciências da Natureza, Matemática e Fundamentos de Computação.'
+    descricao: 'Início do período de avaliação processual do 1º semestre letivo.'
   },
   {
     id: 6,
-    data: '2026-10-12',
-    titulo: 'Nossa Senhora Aparecida',
-    tipo: 'feriado',
-    descricao: 'Feriado nacional - Padroeira do Brasil e Dia das Crianças. Recesso escolar.'
+    data: '2026-09-23',
+    titulo: 'Apresentação de TCC',
+    tipo: 'evento',
+    descricao: 'Apresentação dos Trabalhos de Conclusão de Curso das turmas do 3º ano.'
   },
   {
     id: 7,
-    data: '2026-10-15',
-    titulo: 'Dia do Professor e Atividades Comemorativas',
-    tipo: 'evento',
-    descricao: 'Homenagem ao corpo docente e servidores da educação do CEEP TIC com atividades culturais no espaço de convivência.'
+    data: '2026-10-02',
+    titulo: '3ª Avaliação Plural',
+    tipo: 'prova',
+    descricao: 'Avaliação plural de Língua Portuguesa e Matemática para os anos letivos vigentes.'
   },
   {
     id: 8,
-    data: '2026-10-21',
-    titulo: 'SECITEC 2026 - Semana de Ciência e Tecnologia',
-    tipo: 'evento',
-    descricao: 'Palestras, hackathon interno, workshops técnicos e mostras de cursos técnicos com a presença de empresas parceiras.'
+    data: '2026-10-12',
+    titulo: 'Dia das Crianças',
+    tipo: 'feriado',
+    descricao: 'Feriado e recesso escolar em comemoração ao Dia das Crianças.'
   },
   {
     id: 9,
+    data: '2026-10-15',
+    titulo: 'Dia do Professor',
+    tipo: 'evento',
+    descricao: 'Homenagem ao corpo docente e servidores da escola com atividades comemorativas.'
+  },
+  {
+    id: 10,
+    data: '2026-10-19',
+    titulo: 'Avaliação Processual II',
+    tipo: 'prova',
+    descricao: 'Segunda etapa do processo avaliativo com foco no acompanhamento continuado do aprendizado.'
+  },
+  {
+    id: 11,
+    data: '2026-10-28',
+    titulo: 'Dia do Servidor Público',
+    tipo: 'feriado',
+    descricao: 'Feriado municipal e recesso institucional para o setor público.'
+  },
+  {
+    id: 12,
     data: '2026-11-02',
     titulo: 'Finados',
     tipo: 'feriado',
     descricao: 'Feriado nacional. Unidade escolar fechada.'
   },
   {
-    id: 10,
+    id: 13,
+    data: '2026-11-11',
+    titulo: 'Prova SABE',
+    tipo: 'prova',
+    descricao: 'Aplicação da avaliação externa SABE para identificação do nível de aprendizagem.'
+  },
+  {
+    id: 14,
+    data: '2026-11-13',
+    titulo: 'Noite do Oscar',
+    tipo: 'evento',
+    descricao: 'Atividade cultural e de integração com a comunidade escolar.'
+  },
+  {
+    id: 15,
     data: '2026-11-15',
     titulo: 'Proclamação da República',
     tipo: 'feriado',
     descricao: 'Feriado nacional em comemoração à Proclamação da República do Brasil.'
   },
   {
-    id: 11,
+    id: 16,
     data: '2026-11-20',
-    titulo: 'Dia Nacional de Zumbi e da Consciência Negra',
+    titulo: 'Dia de Zumbi e da Consciência Negra',
     tipo: 'feriado',
-    descricao: 'Feriado nacional e momento de reflexão sobre representatividade, diversidade e cultura afro-brasileira.'
+    descricao: 'Feriado nacional em homenagem à cultura e à história afro-brasileira.'
   },
   {
-    id: 12,
-    data: '2026-12-04',
-    titulo: 'Banca de Apresentação de TCC e Avaliações Finais',
+    id: 17,
+    data: '2026-11-27',
+    titulo: 'Mostra Literária',
+    tipo: 'evento',
+    descricao: 'Mostra de leitura, produção textual e apresentações culturais da escola.'
+  },
+  {
+    id: 18,
+    data: '2026-11-30',
+    titulo: 'Avaliação III Final',
     tipo: 'prova',
-    descricao: 'Apresentação pública dos Trabalhos de Conclusão de Curso das turmas de 3º ano e encerramento do semestre letivo.'
+    descricao: 'Período das avaliações finais e envio do espelho das provas até o prazo estipulado.'
+  },
+  {
+    id: 19,
+    data: '2026-12-03',
+    titulo: 'Organização da Secretaria e Entrega de Boletins',
+    tipo: 'evento',
+    descricao: 'Preparação e entrega dos resultados da III unidade e fechamento administrativo do semestre.'
+  },
+  {
+    id: 20,
+    data: '2026-12-04',
+    titulo: 'Aula de Saudade e Entrega de Resultados',
+    tipo: 'evento',
+    descricao: 'Aula especial de encerramento e entrega dos resultados da III unidade.'
+  },
+  {
+    id: 21,
+    data: '2026-12-07',
+    titulo: 'Recuperação Final',
+    tipo: 'evento',
+    descricao: 'Período de aulas de recuperação final para estudantes com pendências de aprendizagem.'
+  },
+  {
+    id: 22,
+    data: '2026-12-14',
+    titulo: 'Provas de Recuperação Final',
+    tipo: 'prova',
+    descricao: 'Aplicação das provas finais de recuperação com acompanhamento pedagógico e orientação didática.'
+  },
+  {
+    id: 23,
+    data: '2026-12-21',
+    titulo: 'Conselho de Classe – 1º e 2º anos',
+    tipo: 'reuniao',
+    descricao: 'Conselho de classe para fechamento do processo avaliativo e emissão dos pareceres finais.'
+  },
+  {
+    id: 24,
+    data: '2026-12-23',
+    titulo: 'Entrega de Resultado Pós-Recuperação',
+    tipo: 'evento',
+    descricao: 'Encerramento final do calendário avaliativo com entrega dos resultados pós-recuperação.'
   }
 ];

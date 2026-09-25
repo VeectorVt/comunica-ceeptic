@@ -20,7 +20,7 @@ const MapaEscola = () => {
       <PageHeader title="Mapa da Escola" icon={MapIcon} />
 
       <div className="px-4 py-6">
-        <div className="bg-white p-4 rounded-2xl shadow-sm border border-slate-100 mb-6 overflow-x-auto">
+        <div className="bg-white p-4 rounded-lg shadow-sm border border-slate-100 mb-6 overflow-x-auto">
           <div className="min-w-[500px]">
             <div 
               className="grid gap-2" 
@@ -51,7 +51,7 @@ const MapaEscola = () => {
           </div>
         </div>
 
-        <div className="bg-white rounded-2xl shadow-sm border border-slate-100 p-4">
+        <div className="bg-white rounded-lg shadow-sm border border-slate-100 p-4">
           <h3 className="text-sm font-bold text-slate-800 mb-3">Legenda</h3>
           <div className="flex flex-wrap gap-3">
             {legenda.map(item => (
@@ -78,7 +78,7 @@ const MapaEscola = () => {
               initial={{ opacity: 0, scale: 0.9, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: 20 }}
-              className="fixed top-1/2 left-4 right-4 -translate-y-1/2 bg-white rounded-2xl z-50 p-6 shadow-xl"
+              className="fixed top-1/2 left-4 right-4 -translate-y-1/2 bg-white rounded-lg z-50 p-6 shadow-xl"
             >
               <div className="flex justify-between items-start mb-4">
                 <div className="flex items-center gap-3">

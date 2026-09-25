@@ -38,7 +38,7 @@ export default function Eventos() {
                 {/* Timeline Dot */}
                 <div className={`absolute -left-[35px] top-1.5 w-4 h-4 rounded-full border-4 border-white shadow-sm ${statusConfig.color}`} />
                 
-                <div className="bg-white rounded-2xl p-5 shadow-sm border border-slate-100">
+                <div className="bg-white rounded-lg p-5 shadow-sm border border-slate-100">
                   <div className="flex items-center justify-between mb-2">
                     <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${statusConfig.bg} ${statusConfig.text}`}>
                       {statusConfig.label}
