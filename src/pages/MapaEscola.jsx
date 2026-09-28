@@ -16,7 +16,7 @@ const MapaEscola = () => {
   ];
 
   return (
-    <div className="pb-20 min-h-screen bg-slate-50">
+    <div className="pb-20 min-h-screen bg-slate-50 rounded-lg">
       <PageHeader title="Mapa da Escola" icon={MapIcon} />
 
       <div className="px-4 py-6">

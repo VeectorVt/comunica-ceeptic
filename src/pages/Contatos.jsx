@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, Clock, MapPin, User, Building, BookOpen } from 'lucide-react';
+import { Phone, MessageCircle, User, Building } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import { contatos } from '../data/contatos';
 
@@ -33,10 +33,6 @@ export default function Contatos() {
                   <User className="w-4 h-4 text-slate-400 shrink-0" />
                   <span className="font-medium">{c.responsavel}</span>
                 </div>
-                <div className="flex items-center gap-3 text-sm text-slate-600">
-                  <Clock className="w-4 h-4 text-slate-400 shrink-0" />
-                  <span>{c.horario}</span>
-                </div>
               </div>
             </div>
 
@@ -49,11 +45,13 @@ export default function Contatos() {
                 Ligar
               </a>
               <a
-                href={`mailto:${c.email}`}
-                className="flex-1 flex items-center justify-center gap-2 py-3 text-sm font-semibold text-slate-700 hover:text-blue-600 hover:bg-blue-50 transition-colors"
+                href={`https://wa.me/${c.telefone.replace(/\D/g, '')}`}
+                target="_blank"
+                rel="noreferrer"
+                className="flex-1 flex items-center justify-center gap-2 py-3 text-sm font-semibold text-slate-700 hover:text-emerald-600 hover:bg-emerald-50 transition-colors"
               >
-                <Mail className="w-4 h-4" />
-                Email
+                <MessageCircle className="w-4 h-4" />
+                WhatsApp
               </a>
             </div>
           </motion.div>
