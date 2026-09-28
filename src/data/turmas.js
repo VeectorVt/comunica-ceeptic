@@ -1,90 +1,27 @@
 export const turmas = [
-  // Manutenção e Suporte em Informática
-  {
-    codigo: 'MANUT1VA',
-    curso: 'Manutenção e Suporte em Informática',
-    ano: '1º Ano',
-    turno: 'Vespertino',
-    nome_completo: 'Manutenção 1º Ano A'
-  },
-  {
-    codigo: 'MANUT2VA',
-    curso: 'Manutenção e Suporte em Informática',
-    ano: '2º Ano',
-    turno: 'Vespertino',
-    nome_completo: 'Manutenção 2º Ano A'
-  },
-  {
-    codigo: 'MANUT3VA',
-    curso: 'Manutenção e Suporte em Informática',
-    ano: '3º Ano',
-    turno: 'Vespertino',
-    nome_completo: 'Manutenção 3º Ano A'
-  },
-  // Informática
-  {
-    codigo: 'INFO1MA',
-    curso: 'Informática',
-    ano: '1º Ano',
-    turno: 'Matutino',
-    nome_completo: 'Informática 1º Ano A'
-  },
-  {
-    codigo: 'INFO2MA',
-    curso: 'Informática',
-    ano: '2º Ano',
-    turno: 'Matutino',
-    nome_completo: 'Informática 2º Ano A'
-  },
-  {
-    codigo: 'INFO3MA',
-    curso: 'Informática',
-    ano: '3º Ano',
-    turno: 'Matutino',
-    nome_completo: 'Informática 3º Ano A'
-  },
-  // Administração
-  {
-    codigo: 'ADM1MA',
-    curso: 'Administração',
-    ano: '1º Ano',
-    turno: 'Matutino',
-    nome_completo: 'Administração 1º Ano A'
-  },
-  {
-    codigo: 'ADM2MA',
-    curso: 'Administração',
-    ano: '2º Ano',
-    turno: 'Matutino',
-    nome_completo: 'Administração 2º Ano A'
-  },
-  {
-    codigo: 'ADM3MA',
-    curso: 'Administração',
-    ano: '3º Ano',
-    turno: 'Matutino',
-    nome_completo: 'Administração 3º Ano A'
-  },
-  // Logística
-  {
-    codigo: 'LOG1VA',
-    curso: 'Logística',
-    ano: '1º Ano',
-    turno: 'Vespertino',
-    nome_completo: 'Logística 1º Ano A'
-  },
-  {
-    codigo: 'LOG2VA',
-    curso: 'Logística',
-    ano: '2º Ano',
-    turno: 'Vespertino',
-    nome_completo: 'Logística 2º Ano A'
-  },
-  {
-    codigo: 'LOG3VA',
-    curso: 'Logística',
-    ano: '3º Ano',
-    turno: 'Vespertino',
-    nome_completo: 'Logística 3º Ano A'
-  }
+  { codigo: 'ADM1MA', curso: 'Administração', ano: '1º Ano', turno: 'Matutino', nome_completo: 'Administração 1MA' },
+  { codigo: 'LOG1MA', curso: 'Logística', ano: '1º Ano', turno: 'Matutino', nome_completo: 'Logística 1MA' },
+  { codigo: 'LOG1MB', curso: 'Logística', ano: '1º Ano', turno: 'Matutino', nome_completo: 'Logística 1MB' },
+  { codigo: 'INF1MA', curso: 'Informática', ano: '1º Ano', turno: 'Matutino', nome_completo: 'Informática 1MA' },
+  { codigo: 'REDES1MA', curso: 'Redes', ano: '1º Ano', turno: 'Matutino', nome_completo: 'Redes 1MA' },
+  { codigo: 'ADM2MB', curso: 'Administração', ano: '2º Ano', turno: 'Matutino', nome_completo: 'Administração 2MB' },
+  { codigo: 'LOG2MB', curso: 'Logística', ano: '2º Ano', turno: 'Matutino', nome_completo: 'Logística 2MB' },
+  { codigo: 'INF2MB', curso: 'Informática', ano: '2º Ano', turno: 'Matutino', nome_completo: 'Informática 2MB' },
+  { codigo: 'MANUT2MB', curso: 'Manutenção', ano: '2º Ano', turno: 'Matutino', nome_completo: 'Manutenção 2MB' },
+  { codigo: 'ADM3MA', curso: 'Administração', ano: '3º Ano', turno: 'Matutino', nome_completo: 'Administração 3MA' },
+  { codigo: 'LOG3MA', curso: 'Logística', ano: '3º Ano', turno: 'Matutino', nome_completo: 'Logística 3MA' },
+  { codigo: 'INF3MA', curso: 'Informática', ano: '3º Ano', turno: 'Matutino', nome_completo: 'Informática 3MA' },
+  { codigo: 'ADM1VA', curso: 'Administração', ano: '1º Ano', turno: 'Vespertino', nome_completo: 'Administração 1VA' },
+  { codigo: 'LOG1VA', curso: 'Logística', ano: '1º Ano', turno: 'Vespertino', nome_completo: 'Logística 1VA' },
+  { codigo: 'INF1VA', curso: 'Informática', ano: '1º Ano', turno: 'Vespertino', nome_completo: 'Informática 1VA' },
+  { codigo: 'REDES1VA', curso: 'Redes', ano: '1º Ano', turno: 'Vespertino', nome_completo: 'Redes 1VA' },
+  { codigo: 'ADM2VB', curso: 'Administração', ano: '2º Ano', turno: 'Vespertino', nome_completo: 'Administração 2VB' },
+  { codigo: 'LOG2VB', curso: 'Logística', ano: '2º Ano', turno: 'Vespertino', nome_completo: 'Logística 2VB' },
+  { codigo: 'INF2VB', curso: 'Informática', ano: '2º Ano', turno: 'Vespertino', nome_completo: 'Informática 2VB' },
+  { codigo: 'MANUT2VB', curso: 'Manutenção', ano: '2º Ano', turno: 'Vespertino', nome_completo: 'Manutenção 2VB' },
+  { codigo: 'ADM3VA', curso: 'Administração', ano: '3º Ano', turno: 'Vespertino', nome_completo: 'Administração 3VA' },
+  { codigo: 'LOG3VA', curso: 'Logística', ano: '3º Ano', turno: 'Vespertino', nome_completo: 'Logística 3VA' },
+  { codigo: 'INF3VA', curso: 'Informática', ano: '3º Ano', turno: 'Vespertino', nome_completo: 'Informática 3VA' },
+  { codigo: 'MANUT3VA', curso: 'Manutenção', ano: '3º Ano', turno: 'Vespertino', nome_completo: 'Manutenção 3VA' },
+  { codigo: 'REDES3VA', curso: 'Redes', ano: '3º Ano', turno: 'Vespertino', nome_completo: 'Redes 3VA' }
 ];
