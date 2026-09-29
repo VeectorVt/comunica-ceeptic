@@ -1,13 +1,51 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
-import { Search, X, Bell, Map, Calendar, Utensils, BookOpen, ChevronRight, AlertTriangle } from 'lucide-react';
+import { Search, X, Bell, Map, Calendar, Utensils, BookOpen, ChevronRight, ChevronLeft, AlertTriangle } from 'lucide-react';
 import { avisos } from '../data/avisos';
+import { eventos } from '../data/calendario';
 import { locais } from '../data/mapa';
+
+const homeSlides = [
+  { src: '/WhatsApp%20Image%202026-09-28%20at%2019.36.48.jpeg', alt: 'Logo do CEEPTIC Lauro de Freitas', fit: 'object-contain bg-slate-900' },
+  { src: '/WhatsApp%20Image%202026-09-29%20at%2012.20.22.jpeg', alt: 'Vista aérea da escola', fit: 'object-cover' },
+  { src: '/WhatsApp%20Image%202026-09-29%20at%2012.20.23.jpeg', alt: 'Estudantes desenvolvendo projetos de robótica', fit: 'object-cover' },
+  { src: '/WhatsApp%20Image%202026-09-29%20at%2012.20.23%20(1).jpeg', alt: 'Estudantes no espaço de convivência da escola', fit: 'object-cover' },
+];
+
+const convivenciaRules = [
+  { title: 'Uniforme obrigatório', description: 'Use a camisa oficial da escola, calça jeans azul ou preta e calçado fechado. A camisa não deve ser descaracterizada.' },
+  { title: 'Horário das aulas', description: 'Matutino: 7h10 às 12h. Vespertino: 13h às 17h50. Há tolerância de 15 minutos; após esse período, a entrada depende de autorização da Gestão ou Coordenação.' },
+  { title: 'Intervalo', description: 'Matutino: 9h25 às 9h45. Vespertino: 15h15 às 15h35. Saia após o toque da sirene e retorne à sala antes do professor.' },
+  { title: 'Garrafas de água', description: 'Abasteça sua garrafa antes das aulas ou durante o intervalo.' },
+  { title: 'Uso do sanitário', description: 'Peça autorização ao professor. É permitida a saída de um aluno por vez.' },
+  { title: 'Uso do celular', description: 'Permitido apenas para fins pedagógicos e com autorização do professor.' },
+  { title: 'Ausência do professor', description: 'A Coordenação organizará as atividades. Os estudantes devem permanecer em sala.' },
+  { title: 'Indisciplina', description: 'O descumprimento das regras será encaminhado à Coordenação Escolar.' },
+  { title: 'Venda de alimentos', description: 'Não é permitida a venda de alimentos na unidade escolar.' },
+];
+
+const parseLocalDate = (date) => {
+  const [day, month, year] = date.split('/').map(Number);
+  return new Date(year, month - 1, day);
+};
 
 const Home = () => {
   const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState('');
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const intervalId = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % homeSlides.length);
+    }, 5000);
+
+    return () => window.clearInterval(intervalId);
+  }, []);
+
+  const showSlide = (index) => {
+    setActiveSlide((index + homeSlides.length) % homeSlides.length);
+  };
 
   const features = [
     { icon: <Bell className="w-6 h-6" />, title: 'Avisos', path: '/avisos', color: 'bg-blue-100 text-blue-600' },
@@ -17,7 +55,32 @@ const Home = () => {
     { icon: <Map className="w-6 h-6" />, title: 'Mapa', path: '/mapa', color: 'bg-emerald-100 text-emerald-600' },
   ];
 
-  const recentAvisos = avisos.slice(0, 3);
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const endOfUrgentWindow = new Date(today);
+  endOfUrgentWindow.setDate(endOfUrgentWindow.getDate() + 7);
+  const urgentAvisos = [
+    ...avisos
+      .filter((aviso) => aviso.categoria === 'Urgente' && parseLocalDate(aviso.data) >= today)
+      .map((aviso) => ({ ...aviso, alertDate: parseLocalDate(aviso.data) })),
+    ...eventos
+      .filter((evento) => {
+        if (evento.tipo !== 'prova') return false;
+        const examDate = new Date(`${evento.data}T00:00:00`);
+        return examDate >= today && examDate <= endOfUrgentWindow;
+      })
+      .map((evento) => {
+        const alertDate = new Date(`${evento.data}T00:00:00`);
+        return {
+          id: `prova-${evento.id}`,
+          titulo: evento.titulo,
+          descricao: evento.descricao,
+          data: alertDate.toLocaleDateString('pt-BR'),
+          categoria: 'Urgente',
+          alertDate,
+        };
+      }),
+  ].sort((first, second) => first.alertDate - second.alertDate);
   const normalizedQuery = searchQuery.trim().normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   const matchingAvisos = avisos.filter((aviso) =>
     [aviso.titulo, aviso.descricao, aviso.categoria]
@@ -32,9 +95,52 @@ const Home = () => {
   return (
     <div className="pb-20 min-h-screen">
       {/* Hero Banner */}
-      <div className="relative px-6 pt-12 pb-8 rounded-b-[2.5rem] shadow-lg overflow-hidden bg-gradient-to-b from-blue-900/80 via-blue-800/70 to-blue-700/60">
+      <div
+        className="relative left-1/2 -mt-4 flex w-screen -translate-x-1/2 flex-col overflow-hidden rounded-b-[2.5rem] bg-gradient-to-b from-blue-900/80 via-blue-800/70 to-blue-700/60 shadow-lg md:-mt-6 md:w-[calc(100vw-16rem)] lg:-mt-8"
+      >
+      <div className="relative z-10 order-2 mx-auto mt-6 w-[calc(100%-2rem)] overflow-hidden rounded-3xl bg-slate-950 shadow-xl sm:w-[calc(100%-4rem)] lg:max-w-6xl" aria-label="Imagens do CEEPTIC">
+        <div className="relative aspect-[4/3] sm:aspect-[16/7]">
+          {homeSlides.map((slide, index) => (
+            <img
+              key={slide.src}
+              src={slide.src}
+              alt={slide.alt}
+              className={`absolute inset-0 h-full w-full transition-opacity duration-500 ${slide.fit} ${index === activeSlide ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+              aria-hidden={index !== activeSlide}
+            />
+          ))}
+          <button
+            type="button"
+            onClick={() => showSlide(activeSlide - 1)}
+            aria-label="Imagem anterior"
+            className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-slate-950/55 text-white transition hover:bg-slate-950/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <button
+            type="button"
+            onClick={() => showSlide(activeSlide + 1)}
+            aria-label="Próxima imagem"
+            className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-slate-950/55 text-white transition hover:bg-slate-950/75 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+          <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2" aria-label={`Imagem ${activeSlide + 1} de ${homeSlides.length}`}>
+            {homeSlides.map((slide, index) => (
+              <button
+                key={slide.src}
+                type="button"
+                onClick={() => showSlide(index)}
+                aria-label={`Ir para imagem ${index + 1}`}
+                aria-current={index === activeSlide ? 'true' : undefined}
+                className={`h-2 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${index === activeSlide ? 'w-6 bg-white' : 'w-2 bg-white/60 hover:bg-white'}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
 
-        <div className="relative z-10 flex justify-between items-center mb-6 text-white">
+        <div className="relative z-10 order-1 flex justify-between items-center px-6 pt-8 mb-6 text-white">
           <div>
             <h1 className="text-2xl font-bold drop-shadow">Bem-vindo! 👋</h1>
             <p className="text-blue-100 mt-1 drop-shadow">CEEPTIC – Lauro de Freitas</p>
@@ -47,31 +153,32 @@ const Home = () => {
         </div>
 
         {/* Search Bar */}
-        <div className="relative z-10">
-          <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-            <Search className="h-5 w-5 text-slate-400" />
+        <div className="relative z-10 order-3 mt-6 px-6 pb-8">
+          <div className="relative">
+            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+              <Search className="h-5 w-5 text-slate-400" />
+            </div>
+            <input
+              type="text"
+              placeholder="Buscar avisos, locais..."
+              className="w-full bg-white text-slate-800 rounded-2xl py-4 pl-12 pr-12 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              aria-label="Buscar avisos e locais"
+            />
+            {searchQuery && (
+              <button
+                type="button"
+                onClick={() => setSearchQuery('')}
+                aria-label="Limpar busca"
+                className="absolute inset-y-0 right-3 flex items-center p-2 text-slate-400 hover:text-slate-700"
+              >
+                <X className="h-4 w-4" />
+              </button>
+            )}
           </div>
-          <input
-            type="text"
-            placeholder="Buscar avisos, locais..."
-            className="w-full bg-white text-slate-800 rounded-2xl py-4 pl-12 pr-12 shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            aria-label="Buscar avisos e locais"
-          />
-          {searchQuery && (
-            <button
-              type="button"
-              onClick={() => setSearchQuery('')}
-              aria-label="Limpar busca"
-              className="absolute inset-y-0 right-3 flex items-center p-2 text-slate-400 hover:text-slate-700"
-            >
-              <X className="h-4 w-4" />
-            </button>
-          )}
         </div>
       </div>
-
 
       <div className="relative z-20 mt-5 px-4 sm:px-6">
         <div className="grid grid-cols-5 gap-1 rounded-xl border border-white/60  px-2 py-3 shadow-md backdrop-blur">
@@ -136,41 +243,57 @@ const Home = () => {
           </section>
         ) : (
           <>
-            <div className="flex justify-between items-end mb-4">
-              <h2 className="text-lg font-bold text-slate-800">Avisos Recentes</h2>
-              <button onClick={() => navigate('/avisos')} className="text-sm font-medium text-blue-600 flex items-center">
-                Ver todos <ChevronRight className="w-4 h-4 ml-1" />
-              </button>
-            </div>
 
-            <div className="space-y-4">
-              {recentAvisos.map((aviso) => (
+              <section aria-labelledby="urgent-heading" className="mb-8">
+              <div className="mb-4 flex items-end justify-between gap-3">
+                <h2 id="urgent-heading" className="flex items-center gap-2 text-lg font-bold text-slate-800">
+                  <AlertTriangle className="h-5 w-5 text-red-600" /> Avisos urgentes
+                </h2>
+                <button onClick={() => navigate('/avisos')} className="flex items-center text-sm font-medium text-blue-600">
+                  Ver avisos <ChevronRight className="ml-1 h-4 w-4" />
+                </button>
+              </div>
+
+              {urgentAvisos.length > 0 ? (
+                <div className="space-y-3">
+                  {urgentAvisos.map((aviso) => (
                 <motion.div
                   key={aviso.id}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
-                  className={`p-4 rounded-lg shadow-sm border ${
-                    aviso.categoria === 'Urgente' ? 'bg-red-50 border-red-100' : 'bg-white border-slate-100'
-                  }`}
+                      className="rounded-lg border-2 border-red-200 bg-red-50 p-4 shadow-sm"
                 >
                   <div className="flex justify-between items-start mb-2">
                     <div className="flex items-center gap-2">
-                      {aviso.categoria === 'Urgente' && <AlertTriangle className="w-4 h-4 text-red-500" />}
-                      <span className={`text-xs font-bold px-2 py-1 rounded-md ${
-                        aviso.categoria === 'Urgente' ? 'bg-red-100 text-red-700' :
-                        aviso.categoria === 'Turma' ? 'bg-purple-100 text-purple-700' :
-                        'bg-blue-100 text-blue-700'
-                      }`}>
-                        {aviso.categoria}
+                      <span className="inline-flex animate-pulse items-center gap-1 rounded-md bg-red-600 px-2 py-1 text-xs font-bold text-white motion-reduce:animate-none">
+                        <AlertTriangle className="h-3.5 w-3.5" /> URGENTE
                       </span>
                     </div>
                     <span className="text-xs text-slate-500 font-medium">{aviso.data}</span>
                   </div>
                   <h3 className="text-sm font-bold text-slate-800 mb-1">{aviso.titulo}</h3>
-                  <p className="text-xs text-slate-600 line-clamp-2">{aviso.descricao}</p>
+                      <p className="text-xs text-slate-700">{aviso.descricao}</p>
                 </motion.div>
-              ))}
-            </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="rounded-lg border border-slate-200 bg-white/90 p-4 text-sm text-slate-600">Nenhum aviso urgente no momento.</p>
+              )}
+            </section>
+
+            <section aria-labelledby="convivencia-heading" >
+              <h2 id="convivencia-heading" className=" text-lg font-bold text-slate-800">Regras de convivência</h2>
+              <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                {convivenciaRules.map((rule) => (
+                  <article key={rule.title} className="rounded-lg border border-slate-200 bg-white/95 p-4 shadow-sm">
+                    <h3 className="text-sm font-bold text-slate-800">{rule.title}</h3>
+                    <p className="mt-2 text-xs leading-relaxed text-slate-600">{rule.description}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
+
+        
           </>
         )}
       </div>

@@ -9,6 +9,30 @@ const normalizeSearch = (value) => value
   .toLocaleLowerCase('pt-BR')
   .trim();
 
+const dayLabels = {
+  segunda: 'Segunda-feira',
+  terca: 'Terça-feira',
+  quarta: 'Quarta-feira',
+  quinta: 'Quinta-feira',
+  sexta: 'Sexta-feira',
+};
+
+const getTimeRange = (startTime) => {
+  const [hours, minutes] = startTime.split(':').map(Number);
+  const endMinutes = hours * 60 + minutes + 45;
+  const endTime = `${String(Math.floor(endMinutes / 60)).padStart(2, '0')}:${String(endMinutes % 60).padStart(2, '0')}`;
+  return `${startTime}–${endTime}`;
+};
+
+const getSubjectColor = (index, total) => {
+  const hue = Math.round((index * 360) / total);
+  return {
+    backgroundColor: `hsl(${hue} 80% 90%)`,
+    borderColor: `hsl(${hue} 65% 72%)`,
+    color: `hsl(${hue} 70% 25%)`,
+  };
+};
+
 const GradeAulas = () => {
   const [selectedTurma, setSelectedTurma] = useState(turmas[0]?.codigo || '');
   const [searchQuery, setSearchQuery] = useState('');
@@ -34,12 +58,16 @@ const GradeAulas = () => {
     ? selectedTurma
     : filteredTurmas[0]?.codigo || '';
   const gradeAtual = grades[activeTurma];
+  const subjects = gradeAtual
+    ? [...new Set(gradeAtual.horarios.flatMap((row) => gradeDays.map((day) => row[day.key].disciplina)))].filter((subject) => subject && subject !== '-').sort((left, right) => left.localeCompare(right, 'pt-BR'))
+    : [];
+  const subjectColors = new Map(subjects.map((subject, index) => [subject, getSubjectColor(index, subjects.length)]));
 
   return (
-    <div className="pb-20 min-h-screen bg-slate-50 rounded-lg">
+    <div className="w-full min-w-0 max-w-full pb-20 min-h-screen bg-slate-50 rounded-lg">
       <PageHeader title="Grade de Aulas" icon={BookOpen} />
 
-      <div className="px-4 py-6">
+      <div className="w-full min-w-0 px-4 py-6">
         <div className="bg-white p-4 rounded-lg shadow-sm border border-slate-100 mb-6">
           <label htmlFor="class-search" className="block text-sm font-bold text-slate-700 mb-2">Encontre sua turma</label>
           <div className="relative mb-3">
@@ -102,37 +130,58 @@ const GradeAulas = () => {
             <p className="text-slate-500 font-medium">Nenhuma turma corresponde à busca e aos filtros.</p>
           </div>
         ) : gradeAtual ? (
-          <div className="bg-white rounded-lg shadow-sm border border-slate-100 overflow-hidden">
+          <div className="min-w-0 bg-white rounded-lg shadow-sm border border-slate-100 overflow-hidden">
             <div className="bg-blue-600 p-4 text-white">
               <h2 className="font-bold text-lg">{gradeAtual.nome}</h2>
               <p className="text-blue-100 text-sm">{gradeAtual.turno} · Horário de aulas</p>
             </div>
 
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-slate-50 text-xs text-slate-500 border-b border-slate-100">
-                    <th className="p-3 font-bold whitespace-nowrap">Horário</th>
-                    {gradeDays.map((day) => <th key={day.key} className="p-3 font-bold">{day.label}</th>)}
-                  </tr>
-                </thead>
-                <tbody className="text-sm text-slate-700">
-                  {gradeAtual.horarios.map((row, index) => (
-                    <tr key={row.horario} className="border-b border-slate-100 last:border-0 hover:bg-slate-50">
-                      <td className="p-3 font-medium text-slate-500 whitespace-nowrap">{row.horario}</td>
+            <div className="min-w-0 p-4">
+              <div className="min-w-0 overflow-x-auto pb-2">
+                <div className="min-w-[820px] space-y-2">
+                  <div className="grid grid-cols-[96px_repeat(5,minmax(128px,1fr))] gap-2">
+                    <div className="flex items-center justify-center rounded-lg bg-slate-100 px-2 py-3 text-xs font-bold text-slate-600">Horário</div>
+                    {gradeDays.map((day) => (
+                      <div key={day.key} className="flex items-center justify-center rounded-lg bg-slate-100 px-2 py-3 text-xs font-bold text-slate-700">
+                        {dayLabels[day.key]}
+                      </div>
+                    ))}
+                  </div>
+
+                  {gradeAtual.horarios.map((row) => (
+                    <div key={row.horario} className="grid grid-cols-[96px_repeat(5,minmax(128px,1fr))] gap-2">
+                      <div className="flex min-h-[88px] flex-col items-center justify-center rounded-lg bg-slate-800 px-2 text-center text-xs font-bold text-white">
+                        {getTimeRange(row.horario)}
+                      </div>
                       {gradeDays.map((day) => {
                         const lesson = row[day.key];
+                        const color = subjectColors.get(lesson.disciplina);
                         return (
-                          <td key={day.key} className="p-3">
-                            <span>{lesson.disciplina}</span>
-                            {lesson.professor && <span className="mt-1 block text-xs text-slate-500">{lesson.professor}</span>}
-                          </td>
+                          <div
+                            key={day.key}
+                            style={color}
+                            className={`flex min-h-[88px] flex-col justify-center rounded-lg border p-3 shadow-sm ${color ? '' : 'border-slate-200 bg-slate-50 text-slate-500'}`}
+                          >
+                            <span className="break-words text-xs font-bold leading-snug">{lesson.disciplina === '-' ? 'Sem aula' : lesson.disciplina}</span>
+                            {lesson.professor && <span className="mt-2 break-words text-[11px] leading-tight opacity-75">{lesson.professor}</span>}
+                          </div>
                         );
                       })}
-                    </tr>
+                    </div>
                   ))}
-                </tbody>
-              </table>
+                </div>
+              </div>
+
+              <div className="mt-4 border-t border-slate-100 pt-4">
+                <h3 className="mb-3 text-xs font-bold uppercase text-slate-500">Disciplinas</h3>
+                <div className="flex flex-wrap gap-2">
+                  {subjects.map((subject) => (
+                    <span key={subject} style={subjectColors.get(subject)} className="rounded-md border px-2 py-1 text-[11px] font-semibold">
+                      {subject}
+                    </span>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         ) : (

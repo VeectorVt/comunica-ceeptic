@@ -1,27 +1,35 @@
 export const cardapio = {
   Segunda: {
-    cafe: 'Cuscuz com ovos mexidos, café com leite e fruta da estação',
-    almoco: 'Arroz branco, feijão carioca, frango grelhado, salada de alface e tomate e suco de maracujá',
-    lanche: 'Pão integral com queijo, banana e água de coco'
+    data: '28/09/2026',
+    cafe: 'Cuscuz de milho com manteiga e café com leite',
+    almoco: 'Feijão preto com charque, calabresa e músculo, arroz parboilizado e salada',
+    lanche: 'Cuscuz de milho com manteiga e café com leite',
+    ceia: 'Cuscuz de milho com manteiga e café com leite',
   },
-  Terça: {
-    cafe: 'Pão francês com manteiga, leite com cacau e tangerina',
-    almoco: 'Arroz integral, feijão preto, carne moída com legumes, salada de beterraba e suco de acerola',
-    lanche: 'Bolo caseiro de milho e suco de uva'
+  'Terça': {
+    data: '29/09/2026',
+    cafe: 'Mungunzá',
+    almoco: 'Carne moída refogada com legumes, arroz parboilizado e feijão de caldo',
+    lanche: 'Mungunzá',
+    ceia: 'Mungunzá',
   },
   Quarta: {
-    cafe: 'Mingau de aveia com banana, torradas integrais e café',
-    almoco: 'Feijoada escolar leve, arroz branco, couve refogada, farofa e laranja',
-    lanche: 'Pão de queijo e suco de manga'
+    data: '30/09/2026',
+    cafe: 'Sanduíche natural de frango desfiado e cenoura ralada, com suco de polpa',
+    almoco: 'Feijão tropeiro, arroz parboilizado e salada',
+    lanche: 'Sanduíche natural de frango desfiado e cenoura ralada, com suco de polpa',
+    ceia: 'Sanduíche natural de frango desfiado e cenoura ralada, com suco de polpa',
   },
   Quinta: {
-    cafe: 'Tapioca com queijo coalho, café com leite e melão',
-    almoco: 'Macarrão ao molho de tomate com carne, salada verde e suco de abacaxi',
-    lanche: 'Sanduíche natural de frango com ricota e água de coco'
+    data: '01/10/2026',
+    cafe: 'Açaí',
+    almoco: 'Isca de frango refogada, arroz parboilizado, purê de batata e vinagrete',
+    lanche: 'Açaí',
+    ceia: 'Açaí',
   },
   Sexta: {
-    cafe: 'Vitamina de frutas com aveia e pão francês na chapa',
-    almoco: 'Arroz com açafrão, feijão, peixe assado com legumes, salada e melancia',
-    lanche: 'Iogurte natural com granola e fruta'
+    data: '02/10/2026',
+    semAula: true,
+    observacao: 'Não haverá aula. A escola será entregue ao TRE.',
   }
 };
