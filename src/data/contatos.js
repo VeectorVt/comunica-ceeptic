@@ -1,21 +1,17 @@
 import jessicaHanna from '../assets/jessica.jpeg';
 import vivianeOliveira from '../assets/viviane.jpeg';
+import denisDaltro from '../assets/contatos/denis.jpeg';
+import aline from '../assets/contatos/aline.jpeg';
 
 export const contatos = [
   {
     setor: 'Direção Geral',
     telefone: '+55 (71) 8506-4811',
-    responsavel: 'Diretor Denis',
-    imagem: null
+    responsavel: 'Diretor Denis Daltro',
+    imagem: denisDaltro
   },
   {
     setor: 'Apoio Pedagógico',
-    telefone: '',
-    responsavel: 'Professor Anderson',
-    imagem: null
-  },
-  {
-    setor: 'Coordenação Pedagógica',
     telefone: '',
     responsavel: 'Andréa Dias Guimarães',
     imagem: null
@@ -24,7 +20,7 @@ export const contatos = [
     setor: 'Coordenação',
     telefone: '+55 (71) 8243-0738',
     responsavel: 'Aline (coordenadora)',
-    imagem: null
+    imagem: aline
   },
  {
     setor: 'Coordenação Pedagógica',
@@ -38,10 +34,4 @@ export const contatos = [
     responsavel: 'Profª M.ª Viviane',
     imagem: vivianeOliveira
   },
-  {
-    setor: 'Administração de alimentos',
-    telefone: '+55 (71) 98396-5058',
-    responsavel: 'Déa (responsável pela cozinha)',
-    imagem: null
-  }
 ];
