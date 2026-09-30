@@ -5,7 +5,7 @@ import PageHeader from '../components/PageHeader';
 import { eventos } from '../data/calendario';
 
 const Calendario = () => {
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [currentDate, setCurrentDate] = useState(new Date(2026, 7, 1));
   const [selectedDate, setSelectedDate] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
@@ -18,8 +18,17 @@ const Calendario = () => {
   const getDaysInMonth = (year, month) => new Date(year, month + 1, 0).getDate();
   const getFirstDayOfMonth = (year, month) => new Date(year, month, 1).getDay();
 
-  const prevMonth = () => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
-  const nextMonth = () => setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
+  const MIN_MONTH = 7; // agosto
+  const MAX_MONTH = 11; // dezembro
+  const isAtMin = currentDate.getFullYear() === 2026 && currentDate.getMonth() <= MIN_MONTH;
+  const isAtMax = currentDate.getFullYear() === 2026 && currentDate.getMonth() >= MAX_MONTH;
+
+  const prevMonth = () => {
+    if (!isAtMin) setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
+  };
+  const nextMonth = () => {
+    if (!isAtMax) setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
+  };
 
   const daysInMonth = getDaysInMonth(currentDate.getFullYear(), currentDate.getMonth());
   const firstDay = getFirstDayOfMonth(currentDate.getFullYear(), currentDate.getMonth());
@@ -100,13 +109,13 @@ const Calendario = () => {
 
         <div className="bg-white rounded-lg shadow-sm border border-slate-100 p-4">
           <div className="flex items-center justify-between mb-6">
-            <button onClick={prevMonth} className="p-2 rounded-xl text-slate-600 hover:bg-slate-50" aria-label="Mês anterior">
+            <button onClick={prevMonth} disabled={isAtMin} className={`p-2 rounded-xl transition-colors ${isAtMin ? 'text-slate-300 cursor-not-allowed' : 'text-slate-600 hover:bg-slate-50'}`} aria-label="Mês anterior">
               <ChevronLeft className="w-5 h-5" />
             </button>
             <h2 className="text-lg font-bold text-slate-800">
               {monthNames[currentDate.getMonth()]} <span className="text-slate-500">{currentDate.getFullYear()}</span>
             </h2>
-            <button onClick={nextMonth} className="p-2 rounded-xl text-slate-600 hover:bg-slate-50" aria-label="Próximo mês">
+            <button onClick={nextMonth} disabled={isAtMax} className={`p-2 rounded-xl transition-colors ${isAtMax ? 'text-slate-300 cursor-not-allowed' : 'text-slate-600 hover:bg-slate-50'}`} aria-label="Próximo mês">
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>

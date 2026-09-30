@@ -7,7 +7,7 @@ import { eventos } from '../data/calendario';
 import { locais } from '../data/mapa';
 
 const homeSlides = [
-  { src: '/WhatsApp%20Image%202026-09-28%20at%2019.36.48.jpeg', alt: 'Logo do CEEPTIC Lauro de Freitas', fit: 'object-contain bg-slate-900' },
+  { src: '/logo_ceeptic_2026.jpeg', alt: 'Logo do CEEPTIC Lauro de Freitas', fit: 'object-contain bg-slate-900' },
   { src: '/WhatsApp%20Image%202026-09-29%20at%2012.20.22.jpeg', alt: 'Vista aérea da escola', fit: 'object-cover' },
   { src: '/WhatsApp%20Image%202026-09-29%20at%2012.20.23.jpeg', alt: 'Estudantes desenvolvendo projetos de robótica', fit: 'object-cover' },
   { src: '/WhatsApp%20Image%202026-09-29%20at%2012.20.23%20(1).jpeg', alt: 'Estudantes no espaço de convivência da escola', fit: 'object-cover' },
@@ -146,7 +146,7 @@ const Home = () => {
             <p className="text-blue-100 mt-1 drop-shadow">CEEPTIC – Lauro de Freitas</p>
           </div>
           <img
-            src="/logo_ceeptic.png"
+            src="/logo_ceeptic_2026.jpeg"
             alt="Logo CEEPTIC"
             className="w-14 h-14 rounded-full object-cover shadow-lg border-2 border-white/40"
           />

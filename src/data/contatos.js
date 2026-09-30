@@ -2,6 +2,7 @@ import jessicaHanna from '../assets/jessica.jpeg';
 import vivianeOliveira from '../assets/viviane.jpeg';
 import denisDaltro from '../assets/contatos/denis.jpeg';
 import aline from '../assets/contatos/aline.jpeg';
+import andrea from '../assets/contatos/andrea.jpeg'
 
 export const contatos = [
   {
@@ -12,14 +13,14 @@ export const contatos = [
   },
   {
     setor: 'Apoio Pedagógico',
-    telefone: '',
+    telefone: ' +55 (71) 98396-5058',
     responsavel: 'Andréa Dias Guimarães',
-    imagem: null
+    imagem: andrea
   },
   {
-    setor: 'Coordenação',
+    setor: 'Coordenação Pedagogica',
     telefone: '+55 (71) 8243-0738',
-    responsavel: 'Aline (coordenadora)',
+    responsavel: 'Prof Aline Lopes',
     imagem: aline
   },
  {

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Utensils, Coffee, Sun, Sunset, Moon, AlertTriangle, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Utensils, Coffee, Sun, Sunset, Moon, AlertTriangle, ChevronLeft, ChevronRight, RefreshCw } from 'lucide-react';
 import PageHeader from '../components/PageHeader';
 import { cardapio } from '../data/cardapio';
 
@@ -30,7 +30,14 @@ const Cardapio = () => {
     <div className="pb-20 min-h-screen bg-slate-50 rounded-lg">
       <PageHeader title="Cardápio" icon={Utensils} />
 
-      <div className="px-4 py-6">
+      <div className="px-4 pt-3 pb-1">
+        <div className="flex items-center gap-1.5 text-slate-400">
+          <RefreshCw className="w-3 h-3" />
+          <span className="text-xs font-medium">Atualizado em: 30/09/2026</span>
+        </div>
+      </div>
+
+      <div className="px-4 py-4">
         {/* Day Selector */}
         <div className="flex items-center justify-between bg-white rounded-lg p-2 shadow-sm  mb-6">
           <button 
