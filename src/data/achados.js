@@ -1,9 +1,9 @@
-import calculadoraCasio from '../assets/achados/calculadora-casio.png';
-import moletomAzul from '../assets/achados/moletom-azul.png';
-import cadernoEspiral from '../assets/achados/caderno-espiral.png';
-import pendriveSandisk from '../assets/achados/pendrive-sandisk.png';
-import garrafaTermica from '../assets/achados/garrafa-termica.png';
-import estojoFaberCastell from '../assets/achados/estojo-faber-castell.png';
+import calculadoraCasio from '../assets/achados/calculadora-casio.webp';
+import moletomAzul from '../assets/achados/moletom-azul.webp';
+import cadernoEspiral from '../assets/achados/caderno-espiral.webp';
+import pendriveSandisk from '../assets/achados/pendrive-sandisk.webp';
+import garrafaTermica from '../assets/achados/garrafa-termica.webp';
+import estojoFaberCastell from '../assets/achados/estojo-faber-castell.webp';
 
 export const achados = [
   {

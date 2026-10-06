@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 // import homeImg1 from '../assets/home/WhatsApp Image 2026-10-01 at 16.08.46.jpeg';
-import homeImg2 from '../assets/home/WhatsApp Image 2026-10-01 at 16.08.46 (1).jpeg';
-import homeImg3 from '../assets/home/WhatsApp Image 2026-10-01 at 16.08.46 (2).jpeg';
+import homeImg2 from '../assets/home/WhatsApp Image 2026-10-01 at 16.08.46 (1).webp';
+import homeImg3 from '../assets/home/WhatsApp Image 2026-10-01 at 16.08.46 (2).webp';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Search, X, Bell, Map, Calendar, Utensils, BookOpen, ChevronRight, ChevronLeft, AlertTriangle } from 'lucide-react';
@@ -10,10 +10,10 @@ import { eventos } from '../data/calendario';
 import { locais } from '../data/mapa';
 
 const homeSlides = [
-  { src: '/logo_ceeptic_2026.jpeg', alt: 'Logo do CEEPTIC Lauro de Freitas', fit: 'object-contain bg-slate-900' },
-  { src: '/WhatsApp%20Image%202026-09-29%20at%2012.20.22.jpeg', alt: 'Vista aérea da escola', fit: 'object-cover' },
-  { src: '/WhatsApp%20Image%202026-09-29%20at%2012.20.23.jpeg', alt: 'Estudantes desenvolvendo projetos de robótica', fit: 'object-cover' },
-  { src: '/WhatsApp%20Image%202026-09-29%20at%2012.20.23%20(1).jpeg', alt: 'Estudantes no espaço de convivência da escola', fit: 'object-cover' },
+  { src: '/logo_ceeptic_2026.webp', alt: 'Logo do CEEPTIC Lauro de Freitas', fit: 'object-contain bg-slate-900' },
+  { src: '/WhatsApp%20Image%202026-09-29%20at%2012.20.22.webp', alt: 'Vista aérea da escola', fit: 'object-cover' },
+  { src: '/WhatsApp%20Image%202026-09-29%20at%2012.20.23.webp', alt: 'Estudantes desenvolvendo projetos de robótica', fit: 'object-cover' },
+  { src: '/WhatsApp%20Image%202026-09-29%20at%2012.20.23%20(1).webp', alt: 'Estudantes no espaço de convivência da escola', fit: 'object-cover' },
   { src: homeImg2, alt: 'Card FACEM / Aviso Eleitoral', fit: 'object-contain bg-slate-950' },
   { src: homeImg3, alt: 'Programação FACEM 2026', fit: 'object-contain bg-slate-950' },
 ];
@@ -111,6 +111,7 @@ const Home = () => {
               src={slide.src}
               alt={slide.alt}
               className={`absolute inset-0 h-full w-full transition-opacity duration-500 ${slide.fit} ${index === activeSlide ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+              fetchPriority={index === activeSlide ? 'high' : 'low'}
               aria-hidden={index !== activeSlide}
             />
           ))}
@@ -151,7 +152,7 @@ const Home = () => {
             <p className="text-blue-100 mt-1 drop-shadow">CEEPTIC – Lauro de Freitas</p>
           </div>
           <img
-            src="/logo_ceeptic_2026.jpeg"
+            src="/logo_ceeptic_2026.webp"
             alt="Logo CEEPTIC"
             className="w-14 h-14 rounded-full object-cover shadow-lg border-2 border-white/40"
           />

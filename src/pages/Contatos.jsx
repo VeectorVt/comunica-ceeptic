@@ -50,6 +50,8 @@ export default function Contatos() {
                       src={c.imagem}
                       alt={c.responsavel}
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
                   ) : (
                     <User className="w-7 h-7" />

@@ -13,7 +13,7 @@ export default function Layout() {
     <div
       className="min-h-screen flex flex-col text-slate-800 relative"
       style={{
-        backgroundImage: 'url(/escola_bg.png)',
+        backgroundImage: 'url(/escola_bg.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed',

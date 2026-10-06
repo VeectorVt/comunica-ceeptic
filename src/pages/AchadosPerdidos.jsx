@@ -109,6 +109,8 @@ export default function AchadosPerdidos() {
                       src={item.imagem}
                       alt={item.descricao}
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      decoding="async"
                     />
 
                   </div>
