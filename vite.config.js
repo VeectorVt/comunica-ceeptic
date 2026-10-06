@@ -19,15 +19,19 @@ export default defineConfig({
     // Dividir em chunks menores para melhor cache
     rollupOptions: {
       output: {
-        manualChunks: {
-          // Isola o React do resto
-          'vendor-react': ['react', 'react-dom'],
-          // Isola o roteador
-          'vendor-router': ['react-router-dom'],
-          // Isola framer-motion (pesado) em chunk separado
-          'vendor-motion': ['framer-motion'],
-          // Isola ícones
-          'vendor-icons': ['lucide-react'],
+        manualChunks: (id) => {
+          if (id.includes('node_modules/react-dom') || id.includes('node_modules/react/')) {
+            return 'vendor-react';
+          }
+          if (id.includes('node_modules/react-router-dom') || id.includes('node_modules/react-router/')) {
+            return 'vendor-router';
+          }
+          if (id.includes('node_modules/framer-motion')) {
+            return 'vendor-motion';
+          }
+          if (id.includes('node_modules/lucide-react')) {
+            return 'vendor-icons';
+          }
         },
       },
     },
