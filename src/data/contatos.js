@@ -1,8 +1,8 @@
-import jessicaHanna from '../assets/jessica.jpeg';
-import vivianeOliveira from '../assets/viviane.jpeg';
-import denisDaltro from '../assets/contatos/denis.jpeg';
-import aline from '../assets/contatos/aline.jpeg';
-import andrea from '../assets/contatos/andrea.jpeg'
+import jessicaHanna from '../assets/jessica.webp';
+import vivianeOliveira from '../assets/viviane.webp';
+import denisDaltro from '../assets/contatos/denis.webp';
+import aline from '../assets/contatos/aline.webp';
+import andrea from '../assets/contatos/andrea.webp'
 
 export const contatos = [
   {

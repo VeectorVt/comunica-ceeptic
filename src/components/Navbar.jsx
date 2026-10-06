@@ -9,7 +9,7 @@ export default function Navbar({ onToggleSidebar }) {
           <Menu size={24} />
         </button>
         <img
-          src="/logo_ceeptic_2026.jpeg"
+          src="/logo_ceeptic_2026.webp"
           alt="Logo CEEPTIC"
           className="w-9 h-9 rounded-full object-cover shadow-sm border border-slate-200"
         />
