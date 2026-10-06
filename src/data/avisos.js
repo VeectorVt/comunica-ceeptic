@@ -1,5 +1,21 @@
 export const avisos = [
   {
+    id: 100,
+    titulo: '🗳️ 2º Turno das Eleições – Sem aula nos dias 24/10 e 27/10',
+    descricao: 'Informamos que em virtude do CEEPTIC funcionar como zona eleitoral, a nossa unidade escolar será entregue ao TRE para o 2º Turno das Eleições (26/10). Portanto, não haverá aula na sexta-feira 24/10 e na segunda-feira 27/10. Retornaremos normalmente na terça-feira 28/10. Atenciosamente, Direção.',
+    data: '06/10/2026',
+    categoria: 'Urgente',
+    destaque: true
+  },
+  {
+    id: 101,
+    titulo: '🗳️ 1º Turno das Eleições – Sem aula em 02/10 e 05/10',
+    descricao: 'Informamos que em virtude do CEEPTIC funcionar como zona eleitoral, não houve aula na sexta-feira 02/10 e na segunda-feira 05/10. As aulas foram retomadas normalmente na terça-feira 06/10. Atenciosamente, Direção.',
+    data: '01/10/2026',
+    categoria: 'Geral',
+    destaque: false
+  },
+  {
     id: 1,
     titulo: 'Período de Renovação de Matrícula 2027',
     descricao: 'Informamos a todos os estudantes que o prazo para renovação de matrícula para o ano de 2027 está aberto. O procedimento deve ser realizado presencialmente na Secretaria Escolar ou através do Portal da SEC-BA com entrega do comprovante no período de 10/12 a 15/12.',

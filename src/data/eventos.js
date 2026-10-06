@@ -1,5 +1,13 @@
 export const eventosEscola = [
   {
+    id: 10,
+    titulo: '🎨 FACEM 2026 – Feira de Artes, Ciências, Engenharia e Matemática',
+    data: '07/10/2026',
+    descricao: 'A FACEM-TIC 2026 é um momento para celebrar a criatividade, o conhecimento e o talento dos estudantes do CEEPTIC. Haverá visitação nos stands, apresentações culturais (coral, dança, banda do LOG 1º Ano), sorteios e divulgação dos 10 melhores projetos. Encerramento às 16h00. Local: Colégio CEEPTIC – a partir das 07h00.',
+    local: 'Colégio CEEPTIC – Pátio Central e Quadra',
+    status: 'proximo'
+  },
+  {
     id: 1,
     titulo: 'Hackathon CEEPTIC 2026: Soluções Sustentáveis e Smart Cities',
     data: '28/08/2026',

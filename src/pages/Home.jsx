@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+// import homeImg1 from '../assets/home/WhatsApp Image 2026-10-01 at 16.08.46.jpeg';
+import homeImg2 from '../assets/home/WhatsApp Image 2026-10-01 at 16.08.46 (1).jpeg';
+import homeImg3 from '../assets/home/WhatsApp Image 2026-10-01 at 16.08.46 (2).jpeg';
 import { motion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
 import { Search, X, Bell, Map, Calendar, Utensils, BookOpen, ChevronRight, ChevronLeft, AlertTriangle } from 'lucide-react';
@@ -11,6 +14,8 @@ const homeSlides = [
   { src: '/WhatsApp%20Image%202026-09-29%20at%2012.20.22.jpeg', alt: 'Vista aérea da escola', fit: 'object-cover' },
   { src: '/WhatsApp%20Image%202026-09-29%20at%2012.20.23.jpeg', alt: 'Estudantes desenvolvendo projetos de robótica', fit: 'object-cover' },
   { src: '/WhatsApp%20Image%202026-09-29%20at%2012.20.23%20(1).jpeg', alt: 'Estudantes no espaço de convivência da escola', fit: 'object-cover' },
+  { src: homeImg2, alt: 'Card FACEM / Aviso Eleitoral', fit: 'object-contain bg-slate-950' },
+  { src: homeImg3, alt: 'Programação FACEM 2026', fit: 'object-contain bg-slate-950' },
 ];
 
 const convivenciaRules = [
@@ -99,7 +104,7 @@ const Home = () => {
         className="relative left-1/2 -mt-4 flex w-screen -translate-x-1/2 flex-col overflow-hidden rounded-b-[2.5rem] bg-gradient-to-b from-blue-900/80 via-blue-800/70 to-blue-700/60 shadow-lg md:-mt-6 md:w-[calc(100vw-16rem)] lg:-mt-8"
       >
       <div className="relative z-10 order-2 mx-auto mt-6 w-[calc(100%-2rem)] overflow-hidden rounded-3xl bg-slate-950 shadow-xl sm:w-[calc(100%-4rem)] lg:max-w-6xl" aria-label="Imagens do CEEPTIC">
-        <div className="relative aspect-[4/3] sm:aspect-[16/7]">
+        <div className="relative aspect-[3/4] sm:aspect-[4/3] lg:aspect-[16/8]">
           {homeSlides.map((slide, index) => (
             <img
               key={slide.src}
